@@ -30,26 +30,30 @@ function HomePage() {
     getAllTheMovies();
   }, [])
 
+
   return (
     <div>
-      <div className="title-home">
-        <h1>Movieaholic</h1>
-      </div>
-      <div className='search-bar'>
-        <input type='text' placeholder='Search 🔍' />
-      </div>
-      <div className='filter-movies'>
-        <select value={''} onChange={handleChange} > {/*NEED TO DO THIS ONCHANGE */}
-          <option value='title'>Title</option>
-          <option value='release_date'>Release date</option>
-          <option value='rating'>Rating</option>
-          <option value='popularity'>Popularity</option>
-        </select>
-        <div className='all-movies-displayed'>
-          {moviesList.map((oneMovie) => (
-            <MoviesCard movie={oneMovie} key={oneMovie.id} />
-          ))}
+      <div className='title-and-search'>
+        <div className="title-home">
+          <h1>Movieaholic</h1>
         </div>
+        <div className='search-bar-and-filter'>
+          <input type='text' placeholder='Search 🔍' />
+          <div className='filter'>
+            <select value={''} onChange={handleChange} > Filter by: {/*NEED TO DO THIS ONCHANGE */}
+              <option value='title'>Title</option>
+              <option value='release_date'>Release date</option>
+              <option value='rating'>Rating</option>
+              <option value='popularity'>Popularity</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div className='all-movies-displayed'>
+        {moviesList.map((oneMovie) => (
+          <MoviesCard movie={oneMovie} key={oneMovie.id} />
+        ))}
+
       </div>
       <div className="bg-home">
         <img src={bgHomePage} alt="bg-home" width="200px"></img>

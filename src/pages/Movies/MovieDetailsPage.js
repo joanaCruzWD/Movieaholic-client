@@ -36,12 +36,14 @@ function MovieDetailsPage() {
             <div className="row">
 
                 <div className="col col-md-4 col-sm-6">
-                    <div>
-                        <h2 className="title">{movie.title}</h2>
+                    <div className="title">
+                        <h2 >{movie.title}</h2>
                     </div>
+                    <img src={`${imageUrl}${movie.posterPath}`} alt="poster" width='175rem' />
+                    <h3>Vote average:{movie.voteAverage}</h3>
+                    <h3>Overview:{movie.overview}</h3>
 
                 </div>
-
             </div>
         </div>
     )

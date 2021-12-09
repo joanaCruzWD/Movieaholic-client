@@ -12,6 +12,7 @@ function MoviesCard({ movie }) {
                         <div className="Title">
                             <h3>{movie.title}</h3>
                         </div>
+
                         <img src={`${imageUrl}${movie.posterPath}`} alt="poster" width='175rem' />
                         <h3>{movie.voteAverage}</h3>
                         <button className="favorites-btn">💖</button>

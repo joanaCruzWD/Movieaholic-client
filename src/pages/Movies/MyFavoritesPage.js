@@ -2,7 +2,7 @@ import MyMoviesImg from '../../images/MyMovies.png';
 
 const apiURL = "http://localhost:5005";
 
-function MyMoviesPage() {
+function MyFavoritesPage() {
 
     return (
         <div className="bg-movies">
@@ -12,11 +12,8 @@ function MyMoviesPage() {
             <div className="bg-home">
                 <img src={MyMoviesImg} alt="bg-home" width="300px"></img>
             </div>
-
-
         </div>
-
     );
 }
 
-export default MyMoviesPage;
+export default MyFavoritesPage;

@@ -2,6 +2,7 @@ import './App.css'
 import { Routes, Route } from 'react-router-dom'
 
 import Navbar from './components/Navbar/Navbar'
+import GoToTop from './components/GoToTop/GoToTop'
 
 import HomePage from './pages/HomePage/HomePage'
 import SignupPage from './pages/SignupPage/SignupPage'
@@ -36,6 +37,7 @@ function App() {
         <Route path='*' element={<ErrorPage />} />
 
       </Routes>
+      <GoToTop />
       <Footer />
     </div>
   );
