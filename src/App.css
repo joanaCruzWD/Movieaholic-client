@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+/**HomePage Style */
+
+.title-home {
+  font-family: "Flavors", cursive;
+  font-size: 25px;
+  letter-spacing: 5px;
+}

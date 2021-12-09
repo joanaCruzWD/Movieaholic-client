@@ -9,10 +9,11 @@ import LoginPage from './pages/LoginPage/LoginPage'
 import ProfilePage from './pages/ProfilePage/ProfilePage'
 import ErrorPage from './pages/ErrorPage/ErrorPage'
 
-import MyMoviesPage from './pages/Movies/MyMoviesPage'
+import MovieDetailsPage from './pages/Movies/MovieDetailsPage'
 
 import IsPrivate from './components/IsPrivate/IsPrivate'
 import IsAnon from './components/IsAnon/IsAnon'
+import Footer from './components/Footer/Footer'
 
 
 function App() {
@@ -30,11 +31,12 @@ function App() {
 
 
         {/* Routes for the movies */}
-        <Route path='/myMoviesList' element={<IsPrivate> <MyMoviesPage /> </IsPrivate>} />
+        <Route path='/movieDetails/:movieId' element={<IsPrivate> <MovieDetailsPage /> </IsPrivate>} />
 
         <Route path='*' element={<ErrorPage />} />
 
       </Routes>
+      <Footer />
     </div>
   );
 }

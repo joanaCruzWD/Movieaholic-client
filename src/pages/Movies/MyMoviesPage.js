@@ -1,6 +1,9 @@
 import MyMoviesImg from '../../images/MyMovies.png';
 
+const apiURL = "http://localhost:5005";
+
 function MyMoviesPage() {
+
     return (
         <div className="bg-movies">
             <div className="title-myMovies">

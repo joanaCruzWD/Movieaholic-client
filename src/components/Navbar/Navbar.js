@@ -12,12 +12,12 @@ function Navbar() {
       <Link to="/">
         <button>Home</button>
       </Link>
-      <Link to="/myMoviesList">
-        <button>Favorites </button>
-      </Link>
 
       {isLoggedIn && (
         <>
+          <Link to="/myMoviesList">
+            <button>Favorites</button>
+          </Link>
           <button onClick={logOutUser}>Logout</button>
         </>
       )}
