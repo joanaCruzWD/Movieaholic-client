@@ -6,12 +6,10 @@ import MoviesCard from './../../components/Card/MoviesCard';
 const apiURL = "http://localhost:5005";
 
 
-const handleChange = () => {
-
-}
 
 function HomePage() {
   const [moviesList, setMoviesList] = useState([]);
+  const [searchMovies, setSearchMovies] = useState('');
 
   const getAllTheMovies = async () => {
     try {
@@ -30,6 +28,13 @@ function HomePage() {
     getAllTheMovies();
   }, [])
 
+  const handleSelect = () => {
+  }
+
+  const handleSearch = (event) => {
+    setSearchMovies(event.target.value);
+    getAllTheMovies(event.target.value);
+  }
 
   return (
     <div>
@@ -38,9 +43,9 @@ function HomePage() {
           <h1>Movieaholic</h1>
         </div>
         <div className='search-bar-and-filter'>
-          <input type='text' placeholder='Search 🔍' />
+          <input placeholder='Search' type='text' value={searchMovies} onChange={handleSearch} />
           <div className='filter'>
-            <select value={''} onChange={handleChange} > Filter by: {/*NEED TO DO THIS ONCHANGE */}
+            <select value={''} onChange={handleSelect}> Filter by: {/*NEED TO DO THIS ONCHANGE */}
               <option value='title'>Title</option>
               <option value='release_date'>Release date</option>
               <option value='rating'>Rating</option>

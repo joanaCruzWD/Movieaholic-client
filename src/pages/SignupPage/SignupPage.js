@@ -3,12 +3,15 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import authService from "../../services/auth.service";
+import fileService from "../../services/file.service";
 
 function SignupPage(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
+  const [imageUrl, setImageUrl] = useState(""); // <-- used for image upload input
+  const [allowSubmit, setAllowSubmit] = useState(false);
 
   const navigate = useNavigate();
 
@@ -20,19 +23,19 @@ function SignupPage(props) {
     try {
       e.preventDefault();
       // Create an object representing the request body
-      const requestBody = { email, password, name };
+      const requestBody = { email, password, name, image: imageUrl };
 
       const authToken = localStorage.getItem('authToken');
       await axios.post(
         'http://localhost:5005/auth/signup',
         requestBody,
-        { headers: { Authorization: `Bearer ${authToken}`} }
+        { headers: { Authorization: `Bearer ${authToken}` } }
       )
 
       // or with a service
       // await authService.signup(requestBody);
 
-      
+
       // If the request is successful navigate to login page
       navigate("/login");
     } catch (error) {
@@ -40,6 +43,23 @@ function SignupPage(props) {
       setErrorMessage("Something went wrong");
     }
   };
+
+  const handleFileUpload = async (e) => {
+    try {
+      const uploadData = new FormData();
+
+      uploadData.append("imageUrl", e.target.files[0]); // <-- set the file in the form
+
+      const response = await fileService.uploadImage(uploadData);
+
+      setImageUrl(response.data.secure_url);
+      setAllowSubmit(true);
+    } catch (error) {
+      console.log(error);
+      setErrorMessage("Failed to upload the file");
+    }
+  };
+
 
   return (
     <div className="SignupPage">
@@ -60,7 +80,9 @@ function SignupPage(props) {
         <label>Name:</label>
         <input type="text" name="name" value={name} onChange={handleName} />
 
-        <button type="submit">Sign Up</button>
+        <input type="file" onChange={handleFileUpload} />
+
+        <button type="submit" disabled={!allowSubmit}>Sign Up</button>
       </form>
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
