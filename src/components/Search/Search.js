@@ -1,19 +1,21 @@
 import { useState } from 'react';
-import { Input } from "antd";
+import React from 'react';
 
-function Search({ getAllTheMovies }) {
+function Search({ setQueryParams }) {
 
     const [searchMovies, setSearchMovies] = useState('');
-    const handleSearch = (event) => {
-        setSearchMovies(event.target.value);
-        getAllTheMovies(event.target.value);
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        setQueryParams(searchMovies);
     }
-    console.log(handleSearch);
 
     return (
         <div className="search-bar">
-            <label>Search</label>
-            <Input className="search-input" value={searchMovies} type="text" onChange={handleSearch} />
+            <form onSubmit={handleSubmit}>
+                <input className="search-input" value={searchMovies} type="text" onChange={(event) => setSearchMovies(event.target.value)} />
+                <button>Search</button>
+            </form>
         </div>
     );
 }

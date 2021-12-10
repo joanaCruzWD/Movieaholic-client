@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import bgHomePage from '../../images/HomePage-BG.png';
 import MoviesCard from './../../components/Card/MoviesCard';
+import Search from './../../components/Search/Search'
+import FilterMovies from './../../components/FilterMovies/FilterMovies'
 
 const apiURL = "http://localhost:5005";
 
-
-
 function HomePage() {
   const [moviesList, setMoviesList] = useState([]);
-  const [searchMovies, setSearchMovies] = useState('');
+  const [queryParams, setQueryParams] = useState('');
 
   const getAllTheMovies = async () => {
     try {
@@ -23,37 +23,44 @@ function HomePage() {
       console.log(error);
     }
   }
+  const searchMovie = async () => {
+    try {
+      const token = localStorage.getItem('authToken');
+
+      const response = await axios.get(`${apiURL}/api/movies/search/${queryParams}`,
+        { headers: { Authorization: 'Bearer ' + token } });
+      setMoviesList(response.data);
+
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   useEffect(() => {
     getAllTheMovies();
   }, [])
 
-  const handleSelect = () => {
-  }
-
-  const handleSearch = (event) => {
-    setSearchMovies(event.target.value);
-    getAllTheMovies(event.target.value);
-  }
+  useEffect(() => {
+    searchMovie()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [queryParams])
 
   return (
-    <div>
+    <div className='Home-Page-features'>
+
       <div className='title-and-search'>
+
         <div className="title-home">
           <h1>Movieaholic</h1>
         </div>
         <div className='search-bar-and-filter'>
-          <input placeholder='Search' type='text' value={searchMovies} onChange={handleSearch} />
-          <div className='filter'>
-            <select value={''} onChange={handleSelect}> Filter by: {/*NEED TO DO THIS ONCHANGE */}
-              <option value='title'>Title</option>
-              <option value='release_date'>Release date</option>
-              <option value='rating'>Rating</option>
-              <option value='popularity'>Popularity</option>
-            </select>
-          </div>
+          <Search setQueryParams={setQueryParams} />
         </div>
+
       </div>
+
+      <FilterMovies moviesList={moviesList} setMoviesList={setMoviesList} />
+
       <div className='all-movies-displayed'>
         {moviesList.map((oneMovie) => (
           <MoviesCard movie={oneMovie} key={oneMovie.id} />
@@ -63,7 +70,8 @@ function HomePage() {
       <div className="bg-home">
         <img src={bgHomePage} alt="bg-home" width="200px"></img>
       </div>
-    </div>
+
+    </div >
   );
 }
 
