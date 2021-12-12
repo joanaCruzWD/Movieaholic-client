@@ -1,14 +1,12 @@
 import MyMoviesImg from '../../images/MyMovies.png';
 import axios from "axios";
 import { useState, useEffect } from "react";
-import ErrorPage from './../ErrorPage/ErrorPage';
 import FavoritesCard from './../../components/Card/FavoritesCard';
 
 const apiURL = "http://localhost:5005/api";
 
 function MyFavoritesPage() {
     const [favorites, setFavorites] = useState([]);
-    const [error, setError] = useState(false);
 
     const myFavoritesList = async () => {
         try {
@@ -19,7 +17,6 @@ function MyFavoritesPage() {
             console.log(response.data);
         } catch (error) {
             console.log(error);
-            setError(true)
         }
     }
 

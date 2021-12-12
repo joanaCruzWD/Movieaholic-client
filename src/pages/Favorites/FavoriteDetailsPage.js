@@ -3,12 +3,14 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import FavoritesCard from './../../components/Card/FavoritesCard';
+import ErrorPage from './../ErrorPage/ErrorPage';
 
 const apiURL = "http://localhost:5005/api";
 
 
 function FavoriteDetailsPage() {
     const [favoriteDetails, setFavoriteDetails] = useState([]);
+    const [error, setError] = useState(false);
 
     const { favoriteId } = useParams();
 
@@ -22,20 +24,24 @@ function FavoriteDetailsPage() {
 
         } catch (error) {
             console.log(error);
+            setError(true)
         }
     }
     useEffect(() => {
         oneFavoriteDetails()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 
-    return (
+    return !error ? (
         <>
             <div className='all-movies-displayed'>
                 <FavoritesCard movie={favoriteDetails} key={favoriteDetails.id} />
             </div>
         </>
     )
+        :
+        <ErrorPage />
 }
 
 export default FavoriteDetailsPage;
