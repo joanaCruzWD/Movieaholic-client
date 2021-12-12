@@ -41,7 +41,9 @@ function HomePage() {
   }, [])
 
   useEffect(() => {
-    searchMovie()
+    if (queryParams !== '') {
+      searchMovie()
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [queryParams])
 
@@ -49,14 +51,13 @@ function HomePage() {
     <div className='Home-Page-features'>
 
       <div className='title-and-search'>
-
         <div className="title-home">
           <h1>Movieaholic</h1>
         </div>
+
         <div className='search-bar-and-filter'>
           <Search setQueryParams={setQueryParams} />
         </div>
-
       </div>
 
       <FilterMovies moviesList={moviesList} setMoviesList={setMoviesList} />
@@ -65,8 +66,8 @@ function HomePage() {
         {moviesList.map((oneMovie) => (
           <MoviesCard movie={oneMovie} key={oneMovie.id} />
         ))}
-
       </div>
+
       <div className="bg-home">
         <img src={bgHomePage} alt="bg-home" width="200px"></img>
       </div>

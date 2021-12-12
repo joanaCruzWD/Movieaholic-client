@@ -1,4 +1,3 @@
-// src/components/IsAnon.js
 
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";

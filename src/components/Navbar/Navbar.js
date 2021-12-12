@@ -4,7 +4,6 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
 
 function Navbar() {
-  // Get the value from the context
   const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
 
   return (
@@ -15,7 +14,7 @@ function Navbar() {
 
       {isLoggedIn && (
         <>
-          <Link to="/myMoviesList">
+          <Link to="/favorite">
             <button>Favorites</button>
           </Link>
           <button onClick={logOutUser}>Logout</button>
@@ -36,12 +35,11 @@ function Navbar() {
 
       <div className="profile-img-wrapper">
         {user && (
-          <Link to="/profile">
+          <Link to="/profile" user={user}>
             <div className="profile-navbar">
               <img className="profile-img" src={user.image} alt="profile" />
               <h4>Welcome, {user.name}!</h4>
             </div>
-
           </Link>
         )}
       </div>

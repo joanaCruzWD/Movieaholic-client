@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -29,6 +29,7 @@ function MovieDetailsPage() {
     }
     useEffect(() => {
         getMovieDetails();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return !error ? (
@@ -46,11 +47,8 @@ function MovieDetailsPage() {
                 </div>
             </div>
         </div>
-    )
-        :
-        <div>
-            <ErrorPage />
-        </div>
+    ) :
+        <ErrorPage />
 }
 
 export default MovieDetailsPage;

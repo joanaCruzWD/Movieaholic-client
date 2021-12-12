@@ -1,3 +1,7 @@
+
+
+//!!! ------------------------------------------------DELETE THIS ONE-------------------------------------------------------------------
+
 import axios from 'axios';
 
 class ExampleService {
@@ -42,7 +46,7 @@ class ExampleService {
   // DELETE /api/examples/:id
   deleteProject = async (id) => {
     return this.api.delete(`/api/examples/${id}`);
-  } 
+  }
 
 
 }

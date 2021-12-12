@@ -5,9 +5,8 @@ import { useState, useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 
-import authService from "../../services/auth.service";
 
-function LoginPage(props) {
+function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
@@ -31,11 +30,6 @@ function LoginPage(props) {
         requestBody,
         { headers: { Authorization: `Bearer ${authToken}` } }
       );
-
-      // or with a service
-      // const response = await authService.login(requestBody);
-
-      // Save the token and set the user as logged in ...
       const token = response.data.authToken;
       logInUser(token);
 

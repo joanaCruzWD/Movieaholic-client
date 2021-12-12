@@ -2,7 +2,7 @@ import { useState } from 'react';
 import React from 'react';
 
 function FilterMovies({ moviesList, setMoviesList }) {
-    console.log(moviesList);
+
     const [option, setOption] = useState('');
 
     const handleSelect = (e) => {
@@ -21,7 +21,6 @@ function FilterMovies({ moviesList, setMoviesList }) {
             sortByPopularity()
         }
     }
-
     const sortByTitle = () => {
         const sortedTitle = [...moviesList].sort(function (a, b) {
             if (a.title < b.title) {
@@ -63,7 +62,7 @@ function FilterMovies({ moviesList, setMoviesList }) {
         <div className='filter'>
             <label>
                 <select value={option} onChange={handleSelect}>
-                    <option value='' selected disabled>Select</option>
+                    <option value='' defaultValue={option} disabled>Select</option>
                     <option value='title'>Title</option>
                     <option value='releaseDate'>Most recent</option>
                     <option value='voteAverage'>Rating</option>

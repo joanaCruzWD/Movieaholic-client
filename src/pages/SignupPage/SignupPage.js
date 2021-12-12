@@ -2,7 +2,6 @@ import axios from "axios";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import authService from "../../services/auth.service";
 import fileService from "../../services/file.service";
 
 function SignupPage(props) {
@@ -10,7 +9,7 @@ function SignupPage(props) {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
-  const [imageUrl, setImageUrl] = useState(""); // <-- used for image upload input
+  const [imageUrl, setImageUrl] = useState("");
   const [allowSubmit, setAllowSubmit] = useState(false);
 
   const navigate = useNavigate();
@@ -22,7 +21,7 @@ function SignupPage(props) {
   const handleSignupSubmit = async (e) => {
     try {
       e.preventDefault();
-      // Create an object representing the request body
+
       const requestBody = { email, password, name, image: imageUrl };
 
       const authToken = localStorage.getItem('authToken');
@@ -32,14 +31,8 @@ function SignupPage(props) {
         { headers: { Authorization: `Bearer ${authToken}` } }
       )
 
-      // or with a service
-      // await authService.signup(requestBody);
-
-
-      // If the request is successful navigate to login page
       navigate("/login");
     } catch (error) {
-      // If the request resolves with an error, set the error message in the state
       setErrorMessage("Something went wrong");
     }
   };
@@ -47,8 +40,7 @@ function SignupPage(props) {
   const handleFileUpload = async (e) => {
     try {
       const uploadData = new FormData();
-
-      uploadData.append("imageUrl", e.target.files[0]); // <-- set the file in the form
+      uploadData.append("imageUrl", e.target.files[0]);
 
       const response = await fileService.uploadImage(uploadData);
 
@@ -59,7 +51,6 @@ function SignupPage(props) {
       setErrorMessage("Failed to upload the file");
     }
   };
-
 
   return (
     <div className="SignupPage">

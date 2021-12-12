@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 
-function GoTop(props) {
+function GoTop() {
     const [showButton, setShowButton] = useState(false);
 
     useEffect(() => {
@@ -17,7 +17,7 @@ function GoTop(props) {
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
-            behavior: 'smooth' // for smoothly scrolling
+            behavior: 'smooth'
         });
     };
     return (
@@ -27,7 +27,6 @@ function GoTop(props) {
                     &#8679;
                 </button>
             )}
-            {/* &#8679; is used to create the upward arrow */}
         </>
     );
 };
