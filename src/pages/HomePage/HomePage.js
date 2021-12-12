@@ -10,6 +10,7 @@ const apiURL = "http://localhost:5005";
 function HomePage() {
   const [moviesList, setMoviesList] = useState([]);
   const [queryParams, setQueryParams] = useState('');
+  const [emptySearch, setEmptySearch] = useState(false);
 
   const getAllTheMovies = async () => {
     try {
@@ -29,7 +30,13 @@ function HomePage() {
 
       const response = await axios.get(`${apiURL}/api/movies/search/${queryParams}`,
         { headers: { Authorization: 'Bearer ' + token } });
-      setMoviesList(response.data);
+      const data = response.data;
+      if (data.length === 0) {
+        setEmptySearch(true)
+      } else {
+        setEmptySearch(false)
+      }
+      setMoviesList(data);
 
     } catch (error) {
       console.log(error);
@@ -62,18 +69,25 @@ function HomePage() {
 
       <FilterMovies moviesList={moviesList} setMoviesList={setMoviesList} />
 
-      <div className='all-movies-displayed'>
-        {moviesList.map((oneMovie) => (
-          <MoviesCard movie={oneMovie} key={oneMovie.id} />
-        ))}
-      </div>
+
+      {!emptySearch ?
+        (<div className='all-movies-displayed'>
+
+          {moviesList.map((oneMovie) => (
+            <MoviesCard movie={oneMovie} key={oneMovie.id} />
+          ))}
+
+        </div>)
+        :
+        <h3> Sorry! You have to search for another movie 😢</h3>
+      }
 
       <div className="bg-home">
         <img src={bgHomePage} alt="bg-home" width="200px"></img>
       </div>
 
     </div >
-  );
+  )
 }
 
 export default HomePage;

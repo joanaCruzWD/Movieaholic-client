@@ -27,7 +27,7 @@ function MyFavoritesPage() {
         myFavoritesList()
     }, [])
 
-    return !error ? (
+    return (favorites.length > 0) ? (
         <div className="bg-movies">
             <div className="title-myMovies">
                 <h1> Favorites</h1>
@@ -44,9 +44,7 @@ function MyFavoritesPage() {
             </div>
         </div>
     ) :
-        <div>
-            <ErrorPage />
-        </div>
+        <h3> Sorry, no favorites added to this list yet!</h3>
 }
 
 export default MyFavoritesPage;

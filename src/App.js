@@ -9,9 +9,9 @@ import SignupPage from './pages/SignupPage/SignupPage'
 import LoginPage from './pages/LoginPage/LoginPage'
 import ProfilePage from './pages/ProfilePage/ProfilePage'
 import ErrorPage from './pages/ErrorPage/ErrorPage'
-
 import MovieDetailsPage from './pages/Movies/MovieDetailsPage'
 import MyFavoritesPage from './pages/Movies/MyFavoritesPage'
+import FavoriteDetailsPage from './pages/Favorites/FavoriteDetailsPage';
 
 import IsPrivate from './components/IsPrivate/IsPrivate'
 import IsAnon from './components/IsAnon/IsAnon'
@@ -48,6 +48,8 @@ function App() {
         {/* Routes for the movies */}
         <Route path='/movieDetails/:movieId' element={<IsPrivate> <MovieDetailsPage /> </IsPrivate>} />
         <Route path='/favorite' element={<IsPrivate> <MyFavoritesPage /> </IsPrivate>} />
+        <Route path='/favorite/:favoriteId' element={<IsPrivate> <FavoriteDetailsPage /> </IsPrivate>} />
+
 
         <Route path='*' element={<ErrorPage />} />
 

@@ -7,7 +7,7 @@ function FavoritesCard({ movie }) {
     return (
         <div className="MoviesCard" type="submit">
             <div className="row">
-                <Link to={`/movieDetails/${movie.id}`}>
+                <Link to={`/favorite/${movie.id}`}>
                     <div className="col col-md-4 col-sm-6">
                         <div className="Title">
                             <h3>{movie.title}</h3>
