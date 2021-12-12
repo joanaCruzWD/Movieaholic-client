@@ -6,7 +6,6 @@ function FilterMovies({ moviesList, setMoviesList }) {
     const [option, setOption] = useState('');
 
     const handleSelect = (e) => {
-        console.log(e.target.value);
         setOption(e.target.value)
 
         if (e.target.value === 'title') {

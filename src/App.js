@@ -10,7 +10,7 @@ import LoginPage from './pages/LoginPage/LoginPage'
 import ProfilePage from './pages/ProfilePage/ProfilePage'
 import ErrorPage from './pages/ErrorPage/ErrorPage'
 import MovieDetailsPage from './pages/Movies/MovieDetailsPage'
-import MyFavoritesPage from './pages/Movies/MyFavoritesPage'
+import MyFavoritesPage from './pages/Favorites/MyFavoritesPage'
 import FavoriteDetailsPage from './pages/Favorites/FavoriteDetailsPage';
 
 import IsPrivate from './components/IsPrivate/IsPrivate'

@@ -11,10 +11,10 @@ function FavoriteBtn({ movie }) {
 
         try {
             const token = localStorage.getItem('authToken');
-            const response = await axios.post(`${apiURL}/api/movie/favorite`,
+            await axios.post(`${apiURL}/api/movie/favorite`,
                 { movieId: movie.id },
                 { headers: { Authorization: 'Bearer ' + token } });
-            console.log(response);
+
             toast('Added to favorites! ❤')
 
         } catch (error) {

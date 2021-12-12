@@ -1,8 +1,9 @@
 import React, { Link } from 'react-router-dom';
+import RemoveFavorites from './../Favorites/RemoveFavorites';
 
 const imageUrl = "https://image.tmdb.org/t/p/w500"
 
-function FavoritesCard({ movie }) {
+function FavoritesCard({ movie, removeFavoriteMovie }) {
 
     return (
         <div className="MoviesCard" type="submit">
@@ -17,6 +18,8 @@ function FavoritesCard({ movie }) {
                         <h3>Overview:{movie.overview}</h3>
                     </div>
                 </Link>
+
+                <RemoveFavorites removeFavoriteMovie={removeFavoriteMovie} movie={movie} />
             </div>
         </div>
     );

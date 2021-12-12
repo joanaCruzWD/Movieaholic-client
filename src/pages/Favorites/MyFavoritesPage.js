@@ -3,10 +3,13 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import FavoritesCard from './../../components/Card/FavoritesCard';
 
+import { toast } from 'react-toastify';
+
 const apiURL = "http://localhost:5005/api";
 
 function MyFavoritesPage() {
     const [favorites, setFavorites] = useState([]);
+    const [isDeleted, setIsDeleted] = useState(false);
 
     const myFavoritesList = async () => {
         try {
@@ -14,15 +17,33 @@ function MyFavoritesPage() {
             const response = await axios.get(`${apiURL}/favorite`,
                 { headers: { Authorization: 'Bearer ' + token } });
             setFavorites(response.data);
-            console.log(response.data);
+
         } catch (error) {
             console.log(error);
+        }
+    }
+    const removeFavoriteMovie = async (movieId) => {
+        try {
+            const token = localStorage.getItem('authToken');
+
+            await axios.delete(`${apiURL}/api/favorite/${movieId}`,
+                { headers: { Authorization: 'Bearer ' + token } });
+
+            toast.error('Removed from favorites!')
+            setIsDeleted(true);
+        } catch (error) {
+            toast.error('Something went wrong!')
         }
     }
 
     useEffect(() => {
         myFavoritesList()
     }, [])
+
+    useEffect(() => {
+        myFavoritesList()
+        setIsDeleted(false);
+    }, [isDeleted])
 
     return (favorites.length > 0) ? (
         <div className="bg-movies">
@@ -32,7 +53,7 @@ function MyFavoritesPage() {
 
             <div className='all-movies-displayed'>
                 {favorites.map((oneFavorite) => (
-                    <FavoritesCard movie={oneFavorite} key={oneFavorite.id} />
+                    <FavoritesCard removeFavoriteMovie={removeFavoriteMovie} movie={oneFavorite} key={oneFavorite.id} />
                 ))}
             </div>
 

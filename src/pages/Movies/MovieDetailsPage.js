@@ -20,11 +20,9 @@ function MovieDetailsPage() {
                 { headers: { Authorization: 'Bearer ' + token } });
             setMovie(response.data);
 
-            console.log('setMovie(response.data)', response);
         } catch (error) {
             console.log(error);
             setError(true)
-
         }
     }
     useEffect(() => {
