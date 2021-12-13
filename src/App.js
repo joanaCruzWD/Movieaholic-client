@@ -19,8 +19,32 @@ import Footer from './components/Footer/Footer'
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useEffect, useState } from 'react';
+import axios from "axios";
+
+const apiURL = "http://localhost:5005/api";
 
 function App() {
+  const [user, setUser] = useState({});
+  const [isUpdated, setIsUpdated] = useState(false);
+
+  const fetchUser = async () => {
+    try {
+      const token = localStorage.getItem('authToken');
+      const response = await axios.get(`${apiURL}/users/current`,
+        { headers: { Authorization: 'Bearer ' + token } });
+
+      const user = response.data;
+      setUser(user);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    fetchUser();
+  }, [isUpdated]);
+
   return (
     <div className='App'>
       <ToastContainer position="top-center"
@@ -35,12 +59,12 @@ function App() {
 
       />
 
-      <Navbar />
+      <Navbar userProp={user} />
 
       <Routes>
         <Route path='/' element={<HomePage />} />
         {/* Routes for the user */}
-        <Route path='/profile' element={<IsPrivate> <ProfilePage /> </IsPrivate>} />
+        <Route path='/profile' element={<IsPrivate> <ProfilePage setIsUpdated={setIsUpdated} /> </IsPrivate>} />
         <Route path='/signup' element={<IsAnon> <SignupPage /> </IsAnon>} />
         <Route path='/login' element={<IsAnon> <LoginPage /> </IsAnon>} />
 

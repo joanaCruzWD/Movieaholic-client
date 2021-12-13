@@ -8,7 +8,6 @@ import ErrorPage from './../ErrorPage/ErrorPage';
 
 import CommentsBlock from 'simple-react-comments';
 
-
 const apiURL = "http://localhost:5005/api";
 
 
@@ -57,7 +56,6 @@ function FavoriteDetailsPage() {
                                 text,
                             }],
                             );
-                            console.log('submit:', text);
                         }
                     }}
                 />

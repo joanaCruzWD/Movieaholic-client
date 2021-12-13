@@ -22,6 +22,7 @@ function MyFavoritesPage() {
             console.log(error);
         }
     }
+
     const removeFavoriteMovie = async (movieId) => {
         try {
             const token = localStorage.getItem('authToken');

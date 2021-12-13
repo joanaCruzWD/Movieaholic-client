@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import fileService from "../../services/file.service";
 
-function SignupPage(props) {
+function SignupPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");

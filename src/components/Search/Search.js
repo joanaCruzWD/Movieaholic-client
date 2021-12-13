@@ -10,7 +10,7 @@ function Search({ setQueryParams }) {
         setQueryParams(searchMovies);
     }
 
-    //! add style to the search bar and try to catch the number of results searched for something
+    //! add style to the search bar
 
     return (
         <div className="search-bar">

@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
-
 import { useContext } from "react";
 import { AuthContext } from "../../context/auth.context";
 
-function Navbar() {
-  const { isLoggedIn, user, logOutUser } = useContext(AuthContext);
+function Navbar({ userProp }) {
+  const { isLoggedIn, logOutUser } = useContext(AuthContext);
 
   return (
     <nav className="Navbar">
@@ -34,11 +33,11 @@ function Navbar() {
       )}
 
       <div className="profile-img-wrapper">
-        {user && (
-          <Link to="/profile" user={user}>
+        {userProp && (
+          <Link to="/profile" user={userProp}>
             <div className="profile-navbar">
-              <img className="profile-img" src={user.image} alt="profile" />
-              <h4>Welcome, {user.name}!</h4>
+              <img className="profile-img" src={userProp.image} alt="profile" />
+              <h4>Welcome, {userProp.name}!</h4>
             </div>
           </Link>
         )}
