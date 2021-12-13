@@ -13,6 +13,7 @@ import MovieDetailsPage from './pages/Movies/MovieDetailsPage'
 import MyFavoritesPage from './pages/Favorites/MyFavoritesPage'
 import FavoriteDetailsPage from './pages/Favorites/FavoriteDetailsPage';
 
+
 import IsPrivate from './components/IsPrivate/IsPrivate'
 import IsAnon from './components/IsAnon/IsAnon'
 import Footer from './components/Footer/Footer'
