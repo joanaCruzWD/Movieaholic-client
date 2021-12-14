@@ -1,3 +1,5 @@
+import './../Footer/Footer.css'
+
 function Footer() {
     return (
         <footer className="footer">
@@ -9,4 +11,3 @@ function Footer() {
 
 export default Footer;
 
-//!!!Need to change font from the site

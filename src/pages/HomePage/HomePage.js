@@ -1,9 +1,10 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import bgHomePage from '../../images/HomePage-BG.png';
 import MoviesCard from './../../components/Card/MoviesCard';
 import Search from './../../components/Search/Search'
 import FilterMovies from './../../components/FilterMovies/FilterMovies'
+import { AuthContext } from "../../context/auth.context";
 
 const apiURL = "http://localhost:5005";
 
@@ -11,6 +12,7 @@ function HomePage() {
   const [moviesList, setMoviesList] = useState([]);
   const [queryParams, setQueryParams] = useState('');
   const [emptySearch, setEmptySearch] = useState(false);
+  const { isLoggedIn } = useContext(AuthContext);
 
   const getAllTheMovies = async () => {
     try {
@@ -57,18 +59,18 @@ function HomePage() {
   return (
     <div className='Home-Page-features'>
 
-      <div className='title-and-search'>
-        <div className="title-home">
-          <h1>Movieaholic</h1>
-        </div>
+      <div className="title-home">
+        <h1>Movieaholic</h1>
+      </div>
 
+      {isLoggedIn &&
         <div className='search-bar-and-filter'>
           <Search setQueryParams={setQueryParams} />
         </div>
-      </div>
-
-      <FilterMovies moviesList={moviesList} setMoviesList={setMoviesList} />
-
+      }
+      {isLoggedIn &&
+        <FilterMovies moviesList={moviesList} setMoviesList={setMoviesList} />
+      }
 
       {!emptySearch ?
         (<div className='all-movies-displayed'>

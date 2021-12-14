@@ -69,26 +69,17 @@
   background: rgb(116, 138, 187);
 }
 
-/** Title and Search-bar*/
+/* * Title and Search-bar
 .title-and-search {
   display: flex;
   margin-left: 3.5em;
   align-content: stretch;
   justify-content: space-between;
-}
+} */
 
 /** 'Filter by:' styling */
 .filter {
   display: flex;
   justify-content: flex-end;
   margin-right: 2em;
-}
-/** Profile details from Navbar */
-.profile-navbar {
-  display: flex;
-  align-content: stretch;
-  justify-content: space-between;
-  align-items: center;
-  height: 2em;
-  margin-top: 0.3em;
 }

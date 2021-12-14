@@ -1,0 +1,26 @@
+/** Footer styling */
+footer a,
+a:link,
+a:visited,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+  margin-right: 2em;
+}
+
+footer {
+  background: #1f2127;
+  color: rgb(120, 131, 155);
+  list-style-type: none;
+  margin: 0;
+  padding: 0.7rem;
+  overflow: hidden;
+  position: fixed;
+  font-size: 0.7rem;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: right;
+}
