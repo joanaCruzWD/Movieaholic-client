@@ -39,8 +39,10 @@ function SignupPage() {
 
   const handleFileUpload = async (e) => {
     try {
+      e.preventDefault();
       const uploadData = new FormData();
       uploadData.append("imageUrl", e.target.files[0]);
+
 
       const response = await fileService.uploadImage(uploadData);
 

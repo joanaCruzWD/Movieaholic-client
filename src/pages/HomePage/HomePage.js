@@ -1,12 +1,12 @@
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import bgHomePage from '../../images/BG.jpg';
+// import bgHomePage from '../../images/BG.jpg';
 import MoviesCard from './../../components/Card/MoviesCard';
 import Search from './../../components/Search/Search'
 import FilterMovies from './../../components/FilterMovies/FilterMovies'
 import { AuthContext } from "../../context/auth.context";
 
-const apiURL = "http://localhost:5005";
+// const apiURL = "http://localhost:5005";
 
 function HomePage() {
   const [moviesList, setMoviesList] = useState([]);

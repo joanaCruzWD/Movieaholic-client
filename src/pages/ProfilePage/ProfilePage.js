@@ -39,7 +39,6 @@ function ProfilePage({ setIsUpdated }) {
       const token = localStorage.getItem('authToken');
       const requestBody = { name, email, image: imageUrl };
 
-
       const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}/api/users/current`,
         requestBody,
         { headers: { Authorization: 'Bearer ' + token } });

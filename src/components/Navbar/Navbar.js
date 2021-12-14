@@ -49,7 +49,7 @@ function Navbar({ userProp }) {
               <Link to="/profile" user={userProp}>
                 <div className="profile-navbar">
                   {userProp.image && <img className="profile-img" src={userProp.image} alt="profile" />}
-                  <h4>Welcome, {userProp.name}!</h4>
+                  <h4>Welcome, {userProp.name}.</h4>
                 </div>
               </Link>
             )}
