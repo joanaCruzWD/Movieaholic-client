@@ -20,25 +20,6 @@ textarea {
   margin: 10px;
 }
 
-/** Movies card style */
-.MoviesCard {
-  display: inline-block;
-  width: 18em;
-  box-shadow: 0px 2px 3px grey;
-  margin-bottom: 1.5em;
-  background: #859cc575;
-  border-radius: 4px;
-  transition: 0.3s;
-  padding-top: 1.8rem;
-  margin-right: 2%;
-  justify-content: space-around;
-}
-h3 {
-  padding-left: 0.3em;
-  padding-right: 0.3em;
-  justify-content: space-around;
-}
-
 .SignupPage,
 .LoginPage {
   background: #f9eec3;

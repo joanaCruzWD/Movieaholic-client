@@ -48,7 +48,7 @@ function Navbar({ userProp }) {
             {userProp && (
               <Link to="/profile" user={userProp}>
                 <div className="profile-navbar">
-                  <img className="profile-img" src={userProp.image} alt="profile" />
+                  {userProp.image && <img className="profile-img" src={userProp.image} alt="profile" />}
                   <h4>Welcome, {userProp.name}!</h4>
                 </div>
               </Link>
