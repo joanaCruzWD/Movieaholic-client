@@ -4,14 +4,14 @@ import React from 'react';
 
 import { toast } from 'react-toastify';
 
-const apiURL = "http://localhost:5005";
+// const apiURL = "http://localhost:5005";
 
 function FavoriteBtn({ movie }) {
     const addFavoriteMovie = async () => {
 
         try {
             const token = localStorage.getItem('authToken');
-            await axios.post(`${apiURL}/api/movie/favorite`,
+            await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/movie/favorite`,
                 { movieId: movie.id },
                 { headers: { Authorization: 'Bearer ' + token } });
 

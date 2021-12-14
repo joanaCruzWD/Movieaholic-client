@@ -10,7 +10,7 @@ import axios from "axios";
 //     deleteComment as deleteCommentApi,
 // } from "../../api";
 
-const apiURL = "http://localhost:5005/api";
+// const apiURL = "http://localhost:5005/api";
 
 function Comments({ favoriteId }) {
     const [backendComments, setBackendComments] = useState([]);
@@ -19,7 +19,7 @@ function Comments({ favoriteId }) {
     const getComments = async () => {
         try {
             const token = localStorage.getItem('authToken');
-            const response = await axios.get(`${apiURL}/favorite/${favoriteId}/comments`,
+            const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/favorite/${favoriteId}/comments`,
                 { headers: { Authorization: 'Bearer ' + token } });
 
             console.log(response.data);
@@ -33,7 +33,7 @@ function Comments({ favoriteId }) {
     const addComment = async (text) => {
         try {
             const token = localStorage.getItem('authToken');
-            await axios.post(`${apiURL}/favorite/${favoriteId}/comments`,
+            await axios.post(`${process.env.REACT_APP_SERVER_URL}/api/favorite/${favoriteId}/comments`,
                 { body: text },
                 { headers: { Authorization: 'Bearer ' + token } });
             getComments()
@@ -46,7 +46,7 @@ function Comments({ favoriteId }) {
     const updateComment = async (text, commentId) => {
         try {
             const token = localStorage.getItem('authToken');
-            await axios.put(`${apiURL}/favorite/${favoriteId}/${commentId}`,
+            await axios.put(`${process.env.REACT_APP_SERVER_URL}/api/favorite/${favoriteId}/${commentId}`,
                 { body: text },
                 { headers: { Authorization: 'Bearer ' + token } });
             getComments()
@@ -60,7 +60,7 @@ function Comments({ favoriteId }) {
     const deleteComment = async (commentId) => {
         try {
             const token = localStorage.getItem('authToken');
-            await axios.delete(`${apiURL}/favorite/${favoriteId}/${commentId}`,
+            await axios.delete(`${process.env.REACT_APP_SERVER_URL}/api/favorite/${favoriteId}/${commentId}`,
                 { headers: { Authorization: 'Bearer ' + token } });
             getComments()
 

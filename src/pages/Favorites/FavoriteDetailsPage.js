@@ -9,7 +9,9 @@ import Comments from "./../../components/Comments/Comments";
 
 // import CommentsBlock from 'simple-react-comments';
 
-const apiURL = "http://localhost:5005/api";
+// const apiURL = "http://localhost:5005/api";
+
+
 
 
 function FavoriteDetailsPage() {
@@ -22,7 +24,7 @@ function FavoriteDetailsPage() {
     const oneFavoriteDetails = async () => {
         try {
             const token = localStorage.getItem('authToken');
-            const response = await axios.get(`${apiURL}/favorite/${favoriteId}`,
+            const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/favorite/${favoriteId}`,
                 { headers: { Authorization: 'Bearer ' + token } });
             setFavoriteDetails(response.data);
         } catch (error) {

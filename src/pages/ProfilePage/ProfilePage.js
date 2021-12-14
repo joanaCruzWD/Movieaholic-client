@@ -3,7 +3,7 @@ import React from 'react';
 import { useState, useEffect } from "react";
 import fileService from "../../services/file.service";
 
-const apiURL = "http://localhost:5005/api";
+// const apiURL = "http://localhost:5005/api";
 
 function ProfilePage({ setIsUpdated }) {
 
@@ -15,7 +15,7 @@ function ProfilePage({ setIsUpdated }) {
   const getUserDetails = async () => {
     try {
       const token = localStorage.getItem('authToken');
-      const response = await axios.get(`${apiURL}/users/current`,
+      const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/current`,
         { headers: { Authorization: 'Bearer ' + token } });
 
       const user = response.data;
@@ -40,7 +40,7 @@ function ProfilePage({ setIsUpdated }) {
       const requestBody = { name, email, image: imageUrl };
 
 
-      const response = await axios.put(`${apiURL}/users/current`,
+      const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}/api/users/current`,
         requestBody,
         { headers: { Authorization: 'Bearer ' + token } });
       const user = response.data;

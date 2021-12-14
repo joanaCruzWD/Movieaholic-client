@@ -23,7 +23,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from 'react';
 import axios from "axios";
 
-const apiURL = "http://localhost:5005/api";
+// const apiURL = "http://localhost:5005/api";
 
 function App() {
   const [user, setUser] = useState({});
@@ -32,7 +32,7 @@ function App() {
   const fetchUser = async () => {
     try {
       const token = localStorage.getItem('authToken');
-      const response = await axios.get(`${apiURL}/users/current`,
+      const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/current`,
         { headers: { Authorization: 'Bearer ' + token } });
 
       const user = response.data;

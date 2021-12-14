@@ -4,7 +4,7 @@ import axios from "axios";
 
 import ErrorPage from './../ErrorPage/ErrorPage';
 
-const apiURL = "http://localhost:5005/api/movie";
+// const apiURL = "http://localhost:5005/api/movie";
 const imageUrl = "https://image.tmdb.org/t/p/w500"
 
 function MovieDetailsPage() {
@@ -16,7 +16,7 @@ function MovieDetailsPage() {
     const getMovieDetails = async () => {
         try {
             const token = localStorage.getItem('authToken');
-            const response = await axios.get(`${apiURL}/${movieId}`,
+            const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/movie/${movieId}`,
                 { headers: { Authorization: 'Bearer ' + token } });
             setMovie(response.data);
 

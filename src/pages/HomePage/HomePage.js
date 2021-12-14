@@ -18,7 +18,7 @@ function HomePage() {
     try {
       const token = localStorage.getItem('authToken');
 
-      const response = await axios.get(`${apiURL}/api/popularMovies`,
+      const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/popularMovies`,
         { headers: { Authorization: 'Bearer ' + token } });
       setMoviesList(response.data);
 
@@ -30,7 +30,7 @@ function HomePage() {
     try {
       const token = localStorage.getItem('authToken');
 
-      const response = await axios.get(`${apiURL}/api/movies/search/${queryParams}`,
+      const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/movies/search/${queryParams}`,
         { headers: { Authorization: 'Bearer ' + token } });
       const data = response.data;
       if (data.length === 0) {
