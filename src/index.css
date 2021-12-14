@@ -86,7 +86,7 @@ h3 {
   background-color: rgba(255, 255, 255, 0.3);
 }
 
-/* Comment section */
+/** Comment section */
 .comments {
   margin-top: 20px;
 }

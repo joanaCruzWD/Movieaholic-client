@@ -7,6 +7,14 @@
   pointer-events: none;
 }
 
+html {
+  background: url(./images/BG.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
@@ -82,4 +90,7 @@
   display: flex;
   justify-content: flex-end;
   margin-right: 2em;
+}
+.Home-Page-features {
+  background-color: rgb(40, 44, 52);
 }

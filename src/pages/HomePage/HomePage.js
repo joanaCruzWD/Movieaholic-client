@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import bgHomePage from '../../images/HomePage-BG.png';
+import bgHomePage from '../../images/BG.jpg';
 import MoviesCard from './../../components/Card/MoviesCard';
 import Search from './../../components/Search/Search'
 import FilterMovies from './../../components/FilterMovies/FilterMovies'
@@ -57,12 +57,8 @@ function HomePage() {
   }, [queryParams])
 
   return (
+
     <div className='Home-Page-features'>
-
-      <div className="title-home">
-        <h1>Movieaholic</h1>
-      </div>
-
       {isLoggedIn &&
         <div className='search-bar-and-filter'>
           <Search setQueryParams={setQueryParams} />
@@ -83,10 +79,6 @@ function HomePage() {
         :
         <h3> Sorry! You have to search for another movie 😢</h3>
       }
-
-      <div className="bg-home">
-        <img src={bgHomePage} alt="bg-home" width="200px"></img>
-      </div>
 
     </div >
   )

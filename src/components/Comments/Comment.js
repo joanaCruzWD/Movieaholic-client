@@ -6,7 +6,7 @@ const Comment = ({
     activeComment,
     updateComment,
     deleteComment,
-    addComment,
+    // addComment,
     currentUserId,
 }) => {
     const isEditing =
