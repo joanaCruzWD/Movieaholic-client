@@ -1,0 +1,32 @@
+body {
+  margin: 0;
+  color: #f3f4fa;
+  font: 600 16px/18px "Open Sans", sans-serif;
+  margin-bottom: 10px;
+}
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+
+h1 {
+  font: 600 30px "Open Sans", sans-serif;
+  margin-bottom: 10px;
+  padding-bottom: 20px;
+  color: #f3f4fa;
+  text-decoration: none;
+}
+
+.login-html {
+  margin-top: 10px;
+  width: 25em;
+  height: 35em;
+  margin-left: 36%;
+  position: relative;
+  padding: 70px 70px 50px 70px;
+  background: rgba(49, 49, 51, 0.925);
+  box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  display: grid;
+}

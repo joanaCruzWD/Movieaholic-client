@@ -62,9 +62,7 @@ function FavoriteDetailsPage() {
                         }
                     }}
                 /> */}
-                <Comments
-                    favoriteId={favoriteId}
-                />
+                <Comments favoriteId={favoriteId} />
             </div>
         </>
     )

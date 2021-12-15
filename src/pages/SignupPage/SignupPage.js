@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 import fileService from "../../services/file.service";
+import './../SignupPage/SignupPage.css';
 
 function SignupPage() {
   const [email, setEmail] = useState("");
@@ -55,11 +56,11 @@ function SignupPage() {
   };
 
   return (
-    <div className="SignupPage">
+    <div className="login-html">
       <h1>Sign Up</h1>
 
       <form onSubmit={handleSignupSubmit}>
-        <label>Email:</label>
+        <label>Email</label>
         <input type="text" name="email" value={email} onChange={handleEmail} />
 
         <label>Password:</label>
@@ -70,7 +71,7 @@ function SignupPage() {
           onChange={handlePassword}
         />
 
-        <label>Name:</label>
+        <label>Name</label>
         <input type="text" name="name" value={name} onChange={handleName} />
 
         <input type="file" onChange={handleFileUpload} />

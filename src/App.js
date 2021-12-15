@@ -59,26 +59,28 @@ function App() {
         pauseOnHover
 
       />
-
-      <Navbar userProp={user} />
-
-      <Routes>
-        <Route path='/' element={<HomePage />} />
-        {/* Routes for the user */}
-        <Route path='/profile' element={<IsPrivate> <ProfilePage setIsUpdated={setIsUpdated} /> </IsPrivate>} />
-        <Route path='/signup' element={<IsAnon> <SignupPage /> </IsAnon>} />
-        <Route path='/login' element={<IsAnon> <LoginPage /> </IsAnon>} />
-
-
-        {/* Routes for the movies */}
-        <Route path='/movieDetails/:movieId' element={<IsPrivate> <MovieDetailsPage /> </IsPrivate>} />
-        <Route path='/favorite' element={<IsPrivate> <MyFavoritesPage /> </IsPrivate>} />
-        <Route path='/favorite/:favoriteId' element={<IsPrivate> <FavoriteDetailsPage /> </IsPrivate>} />
+      <div style={{ width: '100%', }}>
+        <Navbar userProp={user} />
+      </div>
+      <div>
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          {/* Routes for the user */}
+          <Route path='/profile' element={<IsPrivate> <ProfilePage setIsUpdated={setIsUpdated} /> </IsPrivate>} />
+          <Route path='/signup' element={<IsAnon> <SignupPage /> </IsAnon>} />
+          <Route path='/login' element={<IsAnon> <LoginPage /> </IsAnon>} />
 
 
-        <Route path='*' element={<ErrorPage />} />
+          {/* Routes for the movies */}
+          <Route path='/movieDetails/:movieId' element={<IsPrivate> <MovieDetailsPage /> </IsPrivate>} />
+          <Route path='/favorite' element={<IsPrivate> <MyFavoritesPage /> </IsPrivate>} />
+          <Route path='/favorite/:favoriteId' element={<IsPrivate> <FavoriteDetailsPage /> </IsPrivate>} />
 
-      </Routes>
+
+          <Route path='*' element={<ErrorPage />} />
+
+        </Routes>
+      </div>
       <GoToTop />
       <Footer />
     </div>

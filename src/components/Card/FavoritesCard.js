@@ -1,28 +1,36 @@
 import React, { Link } from 'react-router-dom';
 import RemoveFavorites from './../Favorites/RemoveFavorites';
+import './../Card/FavoritesCard.css'
 
 const imageUrl = "https://image.tmdb.org/t/p/w500"
 
-function FavoritesCard({ movie, removeFavoriteMovie }) {
+function FavoritesCard({ favorites, removeFavoriteMovie }) {
 
     return (
-        <div className="MoviesCard" type="submit">
-            <div className="row">
-                <Link to={`/favorite/${movie.id}`}>
-                    <div className="col col-md-4 col-sm-6">
-                        <div className="Title">
-                            <h3>{movie.title}</h3>
-                        </div>
-                        <img src={`${imageUrl}${movie.posterPath}`} alt="poster" width='175rem' />
-                        <h3>Vote average: {movie.voteAverage}</h3>
-                        <h3>Overview:{movie.overview}</h3>
-                    </div>
-                </Link>
 
-                <RemoveFavorites removeFavoriteMovie={removeFavoriteMovie} movie={movie} />
-            </div>
+        <div className="wrapper1">
+            {console.log('favorites', favorites)}
+            {favorites && favorites.map((movie) =>
+            (
+                <div style={{ width: "25%" }} type="submit">
+
+                    <div className="card">
+                        <Link to={`/favorite/${movie.id}`}>
+                            <img src={`${imageUrl}${movie.posterPath}`} alt="poster" />
+                        </Link>
+                        <div className="descriptions">
+                            <Link to={`/favorite/${movie.id}`}>
+                                <h1>{movie.title}</h1>
+                            </Link>
+                            <RemoveFavorites removeFavoriteMovie={removeFavoriteMovie} movie={movie} />
+                        </div>
+                    </div>
+                </div>
+            ))}
         </div>
-    );
+    )
 }
 
 export default FavoritesCard;
+
+

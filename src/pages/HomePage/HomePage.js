@@ -1,12 +1,10 @@
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
-// import bgHomePage from '../../images/BG.jpg';
 import MoviesCard from './../../components/Card/MoviesCard';
 import Search from './../../components/Search/Search'
 import FilterMovies from './../../components/FilterMovies/FilterMovies'
 import { AuthContext } from "../../context/auth.context";
 
-// const apiURL = "http://localhost:5005";
 
 function HomePage() {
   const [moviesList, setMoviesList] = useState([]);
@@ -57,30 +55,26 @@ function HomePage() {
   }, [queryParams])
 
   return (
-
-    <div className='Home-Page-features'>
-      {isLoggedIn &&
-        <div className='search-bar-and-filter'>
-          <Search setQueryParams={setQueryParams} />
-        </div>
-      }
-      {isLoggedIn &&
-        <FilterMovies moviesList={moviesList} setMoviesList={setMoviesList} />
-      }
-
+    < >
+      <div className='Home-Page-features'>
+        {isLoggedIn &&
+          <div className='search-bar-and-filter'>
+            <Search setQueryParams={setQueryParams} />
+          </div>
+        }
+        {isLoggedIn &&
+          <FilterMovies moviesList={moviesList} setMoviesList={setMoviesList} />
+        }
+      </div>
       {!emptySearch ?
-        (<div className='all-movies-displayed'>
-
-          {moviesList.map((oneMovie) => (
-            <MoviesCard movie={oneMovie} key={oneMovie.id} />
-          ))}
-
+        (<div >
+          <MoviesCard movies={moviesList} />
         </div>)
         :
         <h3> Sorry! You have to search for another movie 😢</h3>
       }
+    </>
 
-    </div >
   )
 }
 
