@@ -8,7 +8,7 @@ function FavoritesCard({ favorites, removeFavoriteMovie, favorite }) {
 
     return (
 
-        <div className="wrapper1">
+        <div className="wrapper-favorites">
             {favorites && favorites.map((movie) =>
             (
                 <div style={{ width: "25%" }} type="submit">

@@ -22,6 +22,7 @@ function Navbar({ userProp }) {
                 <button className='Button'>Favorites</button>
               </li>
             </Link>
+
             <li>
               <button className='Button' onClick={logOutUser}>Logout</button>
             </li>

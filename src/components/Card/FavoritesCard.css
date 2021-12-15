@@ -1,8 +1,9 @@
-.wrapper1 {
+.wrapper-favorites {
   position: absolute;
   height: auto;
   margin-left: 7%;
   margin-right: 7%;
+  margin-top: 3%;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

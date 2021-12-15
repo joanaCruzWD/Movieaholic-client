@@ -10,7 +10,7 @@ function MoviesCard({ movies }) {
 
     return (
 
-        <div className="wrapper1" >
+        <div className="wrapper-movies" >
             {movies.map((movie) =>
             (
                 <div style={{
