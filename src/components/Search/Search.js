@@ -10,8 +10,6 @@ function Search({ setQueryParams }) {
         setQueryParams(searchMovies);
     }
 
-    //! add style to the search bar
-
     return (
         <div className="search-bar">
             <form onSubmit={handleSubmit}>
