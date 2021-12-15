@@ -12,7 +12,7 @@ const Comment = ({
         activeComment &&
         activeComment.id === comment.id &&
         activeComment.type === "editing";
-    const fiveMinutes = 300000;
+    const fiveMinutes = 3000000000;
     const timePassed = new Date() - new Date(comment.createdAt) > fiveMinutes;
     const canDelete =
         currentUserId === comment.userId && !timePassed;
@@ -26,7 +26,7 @@ const Comment = ({
             <div className="comment-right-part">
                 <div className="comment-content">
                     <div className="comment-author">{comment.username}</div>
-                    <div>{createdAt}</div>
+                    <div className="comment-date">{createdAt}</div>
                 </div>
                 {!isEditing && <div className="comment-text">{comment.body}</div>}
                 {isEditing && (

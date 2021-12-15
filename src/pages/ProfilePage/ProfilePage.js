@@ -1,9 +1,10 @@
 import axios from "axios";
 import React from 'react';
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import fileService from "../../services/file.service";
 
-// const apiURL = "http://localhost:5005/api";
+import './../ProfilePage/ProfilePage.css';
 
 function ProfilePage({ setIsUpdated }) {
 
@@ -11,6 +12,8 @@ function ProfilePage({ setIsUpdated }) {
   const [email, setEmail] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
+
+  const navigate = useNavigate();
 
   const getUserDetails = async () => {
     try {
@@ -50,6 +53,7 @@ function ProfilePage({ setIsUpdated }) {
       setImageUrl(user.image);
 
       setIsUpdated(true)
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
@@ -86,11 +90,11 @@ function ProfilePage({ setIsUpdated }) {
   }, [])
 
   return (
-    <div>
+    <div className="profile-update">
       <h1>Profile Page</h1>
       <form onSubmit={editUser}>
 
-        <img src={imageUrl} alt='img-profile-page' width="100px" />
+        <img src={imageUrl} alt='img-profile-page' width="175px" />
         <input type="file" onChange={handleFileUpload} />
 
         <label>Name: </label>

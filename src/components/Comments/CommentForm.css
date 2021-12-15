@@ -17,8 +17,7 @@ h1 {
   text-decoration: none;
 }
 
-/* div que engloba tudo */
-.login-html {
+.comments-form-style {
   width: 70em;
   height: auto;
   margin-left: 36%;
@@ -113,11 +112,17 @@ h1 {
 .comment-author {
   margin-right: 8px;
   font-size: 20px;
-  color: rgb(185, 190, 197);
+  color: rgb(216, 216, 216);
+}
+.comment-date {
+  margin-right: 8px;
+  font-size: 16px;
+  color: rgb(151, 151, 151);
 }
 
 .comment-text {
   font-size: 18px;
+  margin-top: 8px;
 }
 
 .comment-actions {

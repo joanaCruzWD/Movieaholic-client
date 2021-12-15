@@ -70,8 +70,8 @@ function Comments({ favoriteId }) {
 
 
     return (
-        <div className="login-html">
-            <h3 className="comments-title">Comments</h3>
+        <div className="comments-form-style">
+            <h2 className="comments-title">Comments</h2>
             <div className="comment-form-title">Write comment</div>
             <CommentForm submitLabel="Write" handleSubmit={addComment} />
             <div className="comments-container">

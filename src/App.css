@@ -44,3 +44,11 @@ html {
     transform: rotate(360deg);
   }
 }
+
+.warning {
+  background-color: aquamarine;
+  height: 3em;
+  margin-left: 30%;
+  margin-top: 10%;
+  font-size: 40px;
+}

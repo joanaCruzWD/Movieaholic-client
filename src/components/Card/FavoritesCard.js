@@ -5,8 +5,6 @@ import './../Card/FavoritesCard.css'
 const imageUrl = "https://image.tmdb.org/t/p/w500"
 
 function FavoritesCard({ favorites, removeFavoriteMovie, favorite }) {
-    console.log("fovrites props", favorites);
-    console.log("favorite", favorite);
 
     return (
 
@@ -39,6 +37,13 @@ function FavoritesCard({ favorites, removeFavoriteMovie, favorite }) {
                     <div className="descriptions">
                         <Link to={`/favorite/${favorite.id}`}>
                             <h1>{favorite.title}</h1>
+                            <h3>OverView</h3>
+                            <h5> {favorite.overview}</h5>
+                            <h3>Release date</h3>
+                            <h5> {favorite.releaseDate}</h5>
+                            <h3>Vote average</h3>
+                            <h5>{favorite.voteAverage}</h5>
+
                         </Link>
                         <RemoveFavorites removeFavoriteMovie={removeFavoriteMovie} movie={favorite} />
                     </div>

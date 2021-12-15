@@ -35,17 +35,3 @@ function MoviesCard({ movies }) {
 }
 
 export default MoviesCard;
-
-
-// <div className="MoviesCard" type="submit">
-//     <div className="row">
-//         <Link to={`/movieDetails/${movie.id}`}>
-//             <div className="col col-md-4 col-sm-6">
-
-//                 <img src={`${imageUrl}${movie.posterPath}`} alt="poster" width='175rem' />
-//                 <h3>Vote average: {movie.voteAverage}</h3>
-//             </div>
-//         </Link>
-//         <FavoriteBtn movie={movie} />
-//     </div>
-// </div>

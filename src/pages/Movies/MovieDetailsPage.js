@@ -35,25 +35,11 @@ function MovieDetailsPage() {
     return !error ? (
         <>
             <div className='all-movies-displayed'>
-                <FavoritesCard movie={movie} key={movie.id} />
+
+                <FavoritesCard favorite={movie} key={movie.id} />
             </div>
             <div style={{ width: "fit-content", display: "inline-flex" }}>
-                {/* <CommentsBlock
-                    isLoggedIn={true}
-                    comments={comments}
-                    onSubmit={text => {
-                        if (text.length > 0) {
-                            setComments(oldComments => [...oldComments,
-                            {
-                                avatarUrl: '"https://ui-avatars.com/api/name=LadyBug&background=random"',
-                                createdAt: new Date(),
-                                fullName: 'Lady Bug',
-                                text,
-                            }],
-                            );
-                        }
-                    }}
-                /> */}
+
                 <Comments favoriteId={movieId} />
             </div>
         </>

@@ -60,7 +60,9 @@ function MyFavoritesPage() {
             </div>
         </div>
     ) :
-        <h3> Sorry, no favorites added to this list yet!</h3>
+        <div className="warning">
+            <h3> Sorry, no favorites added to this list yet!</h3>
+        </div>
 }
 
 export default MyFavoritesPage;
