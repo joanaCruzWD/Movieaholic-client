@@ -18,6 +18,7 @@ h1 {
 }
 
 .comments-form-style {
+  margin-top: 50px;
   width: 70em;
   height: auto;
   margin-left: 36%;
@@ -28,7 +29,7 @@ h1 {
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
   display: grid;
 }
-/* botão do login */
+
 .loginBtn {
   width: 3.5em;
   height: 2.5em;

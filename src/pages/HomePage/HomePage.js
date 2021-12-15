@@ -71,7 +71,9 @@ function HomePage() {
           <MoviesCard movies={moviesList} />
         </div>)
         :
-        <h1> Sorry! You have to search for another movie 😢</h1>
+        <div className="warning">
+          <h1> Sorry! You have to search for another movie</h1>
+        </div>
       }
     </>
 

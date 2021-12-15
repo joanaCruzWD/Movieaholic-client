@@ -5,7 +5,7 @@ function ErrorPage() {
   return (
     <div className='not-found'>
 
-      <img src={notfoundImg} alt='not-found-img' width='90%' />
+      <img src={notfoundImg} alt='not-found-img' width='100%' />
 
     </div>
   );
