@@ -13,7 +13,7 @@ function FavoriteBtn({ movie }) {
                 { movieId: movie.id },
                 { headers: { Authorization: 'Bearer ' + token } });
 
-            toast('Added to favorites! ❤')
+            toast('Added to favorites ❤')
 
         } catch (error) {
             toast.error('You already have this movie!')

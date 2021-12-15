@@ -62,3 +62,17 @@ html {
   justify-content: center;
   align-items: center;
 }
+.title-favorites {
+  width: 200px;
+  margin-top: 20px;
+  margin-left: 43%;
+  height: 3em;
+  padding: 1.5%;
+  text-align: center;
+  display: flex;
+  align-content: center;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}

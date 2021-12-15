@@ -59,9 +59,7 @@ const Comment = ({
                             Edit
                         </div>
                     )}
-
                 </div>
-
             </div>
         </div>
     );

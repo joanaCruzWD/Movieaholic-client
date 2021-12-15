@@ -13,7 +13,6 @@ import MovieDetailsPage from './pages/Movies/MovieDetailsPage'
 import MyFavoritesPage from './pages/Favorites/MyFavoritesPage'
 import FavoriteDetailsPage from './pages/Favorites/FavoriteDetailsPage';
 
-
 import IsPrivate from './components/IsPrivate/IsPrivate'
 import IsAnon from './components/IsAnon/IsAnon'
 import Footer from './components/Footer/Footer'
@@ -22,8 +21,6 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from 'react';
 import axios from "axios";
-
-// const apiURL = "http://localhost:5005/api";
 
 function App() {
   const [user, setUser] = useState({});
@@ -57,7 +54,6 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-
       />
       <div style={{ width: '100%', }}>
         <Navbar userProp={user} />
@@ -70,12 +66,10 @@ function App() {
           <Route path='/signup' element={<IsAnon> <SignupPage /> </IsAnon>} />
           <Route path='/login' element={<IsAnon> <LoginPage setIsUpdated={setIsUpdated} /> </IsAnon>} />
 
-
           {/* Routes for the movies */}
           <Route path='/movieDetails/:movieId' element={<IsPrivate> <MovieDetailsPage /> </IsPrivate>} />
           <Route path='/favorite' element={<IsPrivate> <MyFavoritesPage /> </IsPrivate>} />
           <Route path='/favorite/:favoriteId' element={<IsPrivate> <FavoriteDetailsPage /> </IsPrivate>} />
-
 
           <Route path='*' element={<ErrorPage />} />
 

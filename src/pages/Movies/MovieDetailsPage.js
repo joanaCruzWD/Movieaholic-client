@@ -6,8 +6,6 @@ import ErrorPage from './../ErrorPage/ErrorPage';
 import FavoritesCard from './../../components/Card/FavoritesCard';
 import Comments from "./../../components/Comments/Comments";
 
-// const apiURL = "http://localhost:5005/api/movie";
-// const imageUrl = "https://image.tmdb.org/t/p/w500"
 
 function MovieDetailsPage() {
     const [movie, setMovie] = useState([]);

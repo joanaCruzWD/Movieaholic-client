@@ -67,8 +67,6 @@ function Comments({ favoriteId }) {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-
-
     return (
         <div className="comments-form-style">
             <h2 className="comments-title">Comments</h2>

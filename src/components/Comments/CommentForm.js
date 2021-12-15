@@ -37,7 +37,6 @@ const CommentForm = ({
                 </button>
             )}
         </form>
-
     );
 };
 

@@ -56,8 +56,7 @@ function HomePage() {
   }, [queryParams])
 
   return isLoggedIn && (
-    < >
-
+    <>
       <div className='search-bar-and-filter'>
         <Search setQueryParams={setQueryParams} />
       </div>

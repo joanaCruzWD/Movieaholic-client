@@ -20,7 +20,7 @@ h1 {
 .profile-update {
   margin-top: 10px;
   width: 25em;
-  height: 35em;
+  height: auto;
   margin-left: 36%;
   position: relative;
   padding: 70px 70px 50px 70px;

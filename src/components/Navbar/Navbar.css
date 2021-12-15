@@ -87,7 +87,6 @@ nav li {
   font-weight: 600;
 }
 
-/** Profile details from Navbar */
 .profile-navbar {
   display: flex;
   align-content: stretch;

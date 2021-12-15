@@ -58,8 +58,6 @@ function FilterMovies({ moviesList, setMoviesList }) {
         setMoviesList(sortedPopularity);
     }
 
-    //!add some css to this filter box
-
     return (
         <div className='filter'>
             <label>

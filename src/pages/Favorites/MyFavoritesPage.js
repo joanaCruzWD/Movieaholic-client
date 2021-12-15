@@ -14,7 +14,6 @@ function MyFavoritesPage() {
             const token = localStorage.getItem('authToken');
             const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/favorite`,
                 { headers: { Authorization: 'Bearer ' + token } });
-            // console.log(response.data);
             setFavorites(response.data);
 
         } catch (error) {
@@ -50,13 +49,11 @@ function MyFavoritesPage() {
 
     return (favorites.length > 0) ? (
         <div className="bg-movies">
-            <div className="title-myMovies">
+            <div className="title-favorites">
                 <h1> Favorites</h1>
-
-
-                <div >
-                    <FavoritesCard key={favorites.id} favorites={favorites} removeFavoriteMovie={removeFavoriteMovie} />
-                </div>
+            </div>
+            <div >
+                <FavoritesCard key={favorites.id} favorites={favorites} removeFavoriteMovie={removeFavoriteMovie} />
             </div>
         </div>
     ) :

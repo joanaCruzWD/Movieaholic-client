@@ -12,6 +12,7 @@ function ProfilePage({ setIsUpdated }) {
   const [email, setEmail] = useState("");
   const [imageUrl, setImageUrl] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
+  const [allowSubmit, setAllowSubmit] = useState(false);
 
   const navigate = useNavigate();
 
@@ -47,7 +48,6 @@ function ProfilePage({ setIsUpdated }) {
         { headers: { Authorization: 'Bearer ' + token } });
       const user = response.data;
 
-
       setName(user.name);
       setEmail(user.email);
       setImageUrl(user.image);
@@ -73,6 +73,7 @@ function ProfilePage({ setIsUpdated }) {
 
       setImageUrl(response.data.secure_url);
       setIsUpdated(false)
+      setAllowSubmit(true);
     } catch (error) {
       console.log(error);
       setErrorMessage('');
@@ -103,8 +104,7 @@ function ProfilePage({ setIsUpdated }) {
         <label>email: </label>
         <input value={email} type='text' disabled="disabled" />
 
-
-        <button type="submit"> Edit profile</button>
+        <button type="submit" disabled={!allowSubmit}> Edit profile</button>
       </form>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
     </div>
@@ -112,5 +112,3 @@ function ProfilePage({ setIsUpdated }) {
 }
 
 export default ProfilePage;
-
-//!Check this page! need to do some changes

@@ -7,17 +7,10 @@ import ErrorPage from './../ErrorPage/ErrorPage';
 
 import Comments from "./../../components/Comments/Comments";
 
-// import CommentsBlock from 'simple-react-comments';
-
-// const apiURL = "http://localhost:5005/api";
-
-
-
 
 function FavoriteDetailsPage() {
     const [favoriteDetails, setFavoriteDetails] = useState([]);
     const [error, setError] = useState(false);
-    // const [comments, setComments] = useState(data)
 
     const { favoriteId } = useParams();
 
@@ -37,8 +30,6 @@ function FavoriteDetailsPage() {
         oneFavoriteDetails()
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
-
-
 
     return !error ? (
         <>

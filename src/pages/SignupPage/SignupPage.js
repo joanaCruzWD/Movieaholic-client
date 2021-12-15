@@ -31,7 +31,6 @@ function SignupPage() {
         requestBody,
         { headers: { Authorization: `Bearer ${authToken}` } }
       )
-
       navigate("/login");
     } catch (error) {
       setErrorMessage("Something went wrong");
@@ -44,7 +43,6 @@ function SignupPage() {
       const uploadData = new FormData();
       uploadData.append("imageUrl", e.target.files[0]);
 
-
       const response = await fileService.uploadImage(uploadData);
 
       setImageUrl(response.data.secure_url);
@@ -56,7 +54,7 @@ function SignupPage() {
   };
 
   return (
-    <div className="login-html">
+    <div className="signup-html">
       <h1>Sign Up</h1>
 
       <form onSubmit={handleSignupSubmit}>
