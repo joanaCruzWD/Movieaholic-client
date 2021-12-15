@@ -55,16 +55,14 @@ function HomePage() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [queryParams])
 
-  return (
+  return isLoggedIn && (
     < >
-      {isLoggedIn &&
-        <div className='search-bar-and-filter'>
-          <Search setQueryParams={setQueryParams} />
-        </div>
-      }
-      {isLoggedIn &&
-        <FilterMovies moviesList={moviesList} setMoviesList={setMoviesList} />
-      }
+
+      <div className='search-bar-and-filter'>
+        <Search setQueryParams={setQueryParams} />
+      </div>
+
+      <FilterMovies moviesList={moviesList} setMoviesList={setMoviesList} />
 
       {!emptySearch ?
         (<div >

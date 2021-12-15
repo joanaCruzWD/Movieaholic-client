@@ -6,7 +6,7 @@ import { AuthContext } from "../../context/auth.context";
 
 import './../LoginPage/LoginPage.css';
 
-function LoginPage() {
+function LoginPage({ setIsUpdated }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
@@ -32,7 +32,7 @@ function LoginPage() {
       );
       const token = response.data.authToken;
       logInUser(token);
-
+      setIsUpdated(true)
       navigate("/");
     } catch (error) {
       // If the request resolves with an error, set the error message in the state

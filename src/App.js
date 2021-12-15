@@ -68,7 +68,7 @@ function App() {
           {/* Routes for the user */}
           <Route path='/profile' element={<IsPrivate> <ProfilePage setIsUpdated={setIsUpdated} /> </IsPrivate>} />
           <Route path='/signup' element={<IsAnon> <SignupPage /> </IsAnon>} />
-          <Route path='/login' element={<IsAnon> <LoginPage /> </IsAnon>} />
+          <Route path='/login' element={<IsAnon> <LoginPage setIsUpdated={setIsUpdated} /> </IsAnon>} />
 
 
           {/* Routes for the movies */}
