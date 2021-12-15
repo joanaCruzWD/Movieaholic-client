@@ -4,12 +4,13 @@ import './../Card/FavoritesCard.css'
 
 const imageUrl = "https://image.tmdb.org/t/p/w500"
 
-function FavoritesCard({ favorites, removeFavoriteMovie }) {
+function FavoritesCard({ favorites, removeFavoriteMovie, favorite }) {
+    console.log("fovrites props", favorites);
+    console.log("favorite", favorite);
 
     return (
 
         <div className="wrapper1">
-            {console.log('favorites', favorites)}
             {favorites && favorites.map((movie) =>
             (
                 <div style={{ width: "25%" }} type="submit">
@@ -27,6 +28,22 @@ function FavoritesCard({ favorites, removeFavoriteMovie }) {
                     </div>
                 </div>
             ))}
+
+
+            {favorite &&
+
+                <div className="card">
+                    <Link to={`/favorite/${favorite.id}`}>
+                        <img src={`${imageUrl}${favorite.posterPath}`} alt="poster" />
+                    </Link>
+                    <div className="descriptions">
+                        <Link to={`/favorite/${favorite.id}`}>
+                            <h1>{favorite.title}</h1>
+                        </Link>
+                        <RemoveFavorites removeFavoriteMovie={removeFavoriteMovie} movie={favorite} />
+                    </div>
+                </div>
+            }
         </div>
     )
 }

@@ -15,7 +15,7 @@ function MoviesCard({ movies }) {
             (
                 <div style={{
                     width: "25%"
-                }} type="submit">
+                }} type="submit" key={movie.id}>
 
                     <div className="card">
                         <Link to={`/movieDetails/${movie.id}`}>

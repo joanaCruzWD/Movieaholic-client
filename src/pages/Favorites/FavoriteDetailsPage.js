@@ -43,25 +43,9 @@ function FavoriteDetailsPage() {
     return !error ? (
         <>
             <div className='all-movies-displayed'>
-                <FavoritesCard movie={favoriteDetails} key={favoriteDetails.id} />
+                <FavoritesCard favorite={favoriteDetails} key={favoriteDetails.id} />
             </div>
             <div style={{ width: "fit-content", display: "inline-flex" }}>
-                {/* <CommentsBlock
-                    isLoggedIn={true}
-                    comments={comments}
-                    onSubmit={text => {
-                        if (text.length > 0) {
-                            setComments(oldComments => [...oldComments,
-                            {
-                                avatarUrl: '"https://ui-avatars.com/api/name=LadyBug&background=random"',
-                                createdAt: new Date(),
-                                fullName: 'Lady Bug',
-                                text,
-                            }],
-                            );
-                        }
-                    }}
-                /> */}
                 <Comments favoriteId={favoriteId} />
             </div>
         </>
@@ -71,28 +55,3 @@ function FavoriteDetailsPage() {
 }
 
 export default FavoriteDetailsPage;
-
-
-// //!!DELETE THIS!!!
-// const data = [
-//     {
-//         createdAt: new Date(),
-//         "fullName": "Riya Negi",
-//         "avatarUrl": "https://ui-avatars.com/api/name=Riya&background=random",
-//         "text": "Hey, Loved your blog! ",
-
-//     },
-//     {
-//         createdAt: new Date(),
-//         "fullName": "Lily",
-//         "avatarUrl": "https://ui-avatars.com/api/name=Lily&background=random",
-//         "text": "I have a doubt about the 4th point🤔",
-//     },
-//     // {
-//     //     "userId": "01c",
-//     //     "comId": "018",
-//     //     "fullName": "Derek",
-//     //     "text": "Great explanation!!!",
-//     //     "avatarUrl": "https://ui-avatars.com/api/name=Derek&background=random"
-//     // }
-// ]

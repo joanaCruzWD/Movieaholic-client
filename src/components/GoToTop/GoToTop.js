@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+import './../GoToTop/GoToTop.css';
 
 function GoTop() {
     const [showButton, setShowButton] = useState(false);

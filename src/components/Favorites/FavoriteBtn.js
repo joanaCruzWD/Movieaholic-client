@@ -4,8 +4,6 @@ import React from 'react';
 
 import { toast } from 'react-toastify';
 
-// const apiURL = "http://localhost:5005";
-
 function FavoriteBtn({ movie }) {
     const addFavoriteMovie = async () => {
 
@@ -23,8 +21,6 @@ function FavoriteBtn({ movie }) {
         }
     }
 
-
-    //!!! Add a button to this
     return (
         <div>
             <button className="favorites-btn" onClick={addFavoriteMovie} >

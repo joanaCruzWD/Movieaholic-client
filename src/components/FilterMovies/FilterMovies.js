@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import React from 'react';
+import './../FilterMovies/FilterMovies.css'
 
 function FilterMovies({ moviesList, setMoviesList }) {
 

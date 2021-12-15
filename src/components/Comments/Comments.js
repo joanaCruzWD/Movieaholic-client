@@ -3,14 +3,7 @@ import CommentForm from "./CommentForm";
 import Comment from "./Comment";
 import axios from "axios";
 
-// import {
-//     getComments as getCommentsApi,
-//     createComment as createCommentApi,
-//     updateComment as updateCommentApi,
-//     deleteComment as deleteCommentApi,
-// } from "../../api";
-
-// const apiURL = "http://localhost:5005/api";
+import './../Comments/CommentForm.css'
 
 function Comments({ favoriteId }) {
     const [backendComments, setBackendComments] = useState([]);
@@ -71,12 +64,13 @@ function Comments({ favoriteId }) {
 
     useEffect(() => {
         getComments()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
 
 
     return (
-        <div className="comments">
+        <div className="login-html">
             <h3 className="comments-title">Comments</h3>
             <div className="comment-form-title">Write comment</div>
             <CommentForm submitLabel="Write" handleSubmit={addComment} />

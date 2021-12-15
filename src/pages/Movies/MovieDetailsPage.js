@@ -3,9 +3,11 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 import ErrorPage from './../ErrorPage/ErrorPage';
+import FavoritesCard from './../../components/Card/FavoritesCard';
+import Comments from "./../../components/Comments/Comments";
 
 // const apiURL = "http://localhost:5005/api/movie";
-const imageUrl = "https://image.tmdb.org/t/p/w500"
+// const imageUrl = "https://image.tmdb.org/t/p/w500"
 
 function MovieDetailsPage() {
     const [movie, setMovie] = useState([]);
@@ -31,20 +33,30 @@ function MovieDetailsPage() {
     }, [])
 
     return !error ? (
-        <div className="MoviesCard" type="submit">
-            <div className="row">
-
-                <div className="col col-md-4 col-sm-6">
-                    <div className="title">
-                        <h2 >{movie.title}</h2>
-                    </div>
-                    <img src={`${imageUrl}${movie.posterPath}`} alt="poster" width='175rem' />
-                    <h3>Vote average:{movie.voteAverage}</h3>
-                    <h3>Overview:{movie.overview}</h3>
-
-                </div>
+        <>
+            <div className='all-movies-displayed'>
+                <FavoritesCard movie={movie} key={movie.id} />
             </div>
-        </div>
+            <div style={{ width: "fit-content", display: "inline-flex" }}>
+                {/* <CommentsBlock
+                    isLoggedIn={true}
+                    comments={comments}
+                    onSubmit={text => {
+                        if (text.length > 0) {
+                            setComments(oldComments => [...oldComments,
+                            {
+                                avatarUrl: '"https://ui-avatars.com/api/name=LadyBug&background=random"',
+                                createdAt: new Date(),
+                                fullName: 'Lady Bug',
+                                text,
+                            }],
+                            );
+                        }
+                    }}
+                /> */}
+                <Comments favoriteId={movieId} />
+            </div>
+        </>
     ) :
         <ErrorPage />
 }

@@ -1,4 +1,4 @@
-import MyMoviesImg from '../../images/MyMovies.png';
+// import MyMoviesImg from '../../images/MyMovies.png';
 import axios from "axios";
 import { useState, useEffect } from "react";
 import FavoritesCard from './../../components/Card/FavoritesCard';
@@ -53,8 +53,9 @@ function MyFavoritesPage() {
             <div className="title-myMovies">
                 <h1> Favorites</h1>
 
+
                 <div >
-                    <FavoritesCard favorites={favorites} removeFavoriteMovie={removeFavoriteMovie} />
+                    <FavoritesCard key={favorites.id} favorites={favorites} removeFavoriteMovie={removeFavoriteMovie} />
                 </div>
             </div>
         </div>

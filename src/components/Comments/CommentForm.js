@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import './../Comments/CommentForm.css'
+
 const CommentForm = ({
     handleSubmit,
     submitLabel,
@@ -15,6 +17,7 @@ const CommentForm = ({
         setText("");
     };
     return (
+
         <form onSubmit={onSubmit}>
             <textarea
                 className="comment-form-textarea"
@@ -34,6 +37,7 @@ const CommentForm = ({
                 </button>
             )}
         </form>
+
     );
 };
 

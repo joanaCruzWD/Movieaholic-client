@@ -5,6 +5,7 @@ import Search from './../../components/Search/Search'
 import FilterMovies from './../../components/FilterMovies/FilterMovies'
 import { AuthContext } from "../../context/auth.context";
 
+import './../HomePage/HomePage.css';
 
 function HomePage() {
   const [moviesList, setMoviesList] = useState([]);
@@ -56,22 +57,21 @@ function HomePage() {
 
   return (
     < >
-      <div className='Home-Page-features'>
-        {isLoggedIn &&
-          <div className='search-bar-and-filter'>
-            <Search setQueryParams={setQueryParams} />
-          </div>
-        }
-        {isLoggedIn &&
-          <FilterMovies moviesList={moviesList} setMoviesList={setMoviesList} />
-        }
-      </div>
+      {isLoggedIn &&
+        <div className='search-bar-and-filter'>
+          <Search setQueryParams={setQueryParams} />
+        </div>
+      }
+      {isLoggedIn &&
+        <FilterMovies moviesList={moviesList} setMoviesList={setMoviesList} />
+      }
+
       {!emptySearch ?
         (<div >
           <MoviesCard movies={moviesList} />
         </div>)
         :
-        <h3> Sorry! You have to search for another movie 😢</h3>
+        <h1> Sorry! You have to search for another movie 😢</h1>
       }
     </>
 

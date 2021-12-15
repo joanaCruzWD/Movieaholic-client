@@ -1,0 +1,7 @@
+/* .not-found {
+  background-image: url("./../../images/404.jpg");
+} */
+
+body {
+  background-image: url("./../../images/404.jpg");
+}

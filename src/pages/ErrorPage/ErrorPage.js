@@ -1,11 +1,12 @@
-import notfoundImg from './../../images/NotFound.jpg'
+import notfoundImg from './../../images/404.jpg';
+// import './../ErrorPage/ErrorPage.css';
 
-//!!! Fix the image---> do it with css
 
 function ErrorPage() {
   return (
     <div className='not-found'>
-      <img src={notfoundImg} alt='not-found-img' width='700rem' />
+
+      <img src={notfoundImg} alt='not-found-img' width='100%' />
 
     </div>
   );

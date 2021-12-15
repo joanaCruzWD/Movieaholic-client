@@ -1,0 +1,22 @@
+.btnSearch {
+  width: 70px;
+  background-color: rgb(141, 47, 47);
+  color: white;
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: inline-block;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+.search-input {
+  width: 200px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  display: inline-block;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
