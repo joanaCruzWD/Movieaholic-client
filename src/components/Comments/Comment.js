@@ -19,9 +19,9 @@ const Comment = ({
     const canEdit = currentUserId === comment.userId && !timePassed;
     const createdAt = new Date(comment.createdAt).toLocaleDateString();
     return (
-        <div key={comment.id} className="comment">
+        <div className="comment" key={comment.id}>
             <div className="comment-image-container">
-                <img src={`https://ui-avatars.com/api/${comment.username}&background=random`} alt="icons" />
+                <img src={`https://ui-avatars.com/api/name=${comment.username}&background=random`} alt="icons" />
             </div>
             <div className="comment-right-part">
                 <div className="comment-content">
