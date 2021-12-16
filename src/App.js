@@ -69,7 +69,7 @@ function App() {
           <Route path='/login' element={<IsAnon> <LoginPage setIsUpdated={setIsUpdated} /> </IsAnon>} />
 
           {/* Routes for the movies */}
-          <Route path='/movieDetails/:movieId' element={<IsPrivate> <MovieDetailsPage /> </IsPrivate>} />
+          <Route path='/movie-details/:movieId' element={<IsPrivate> <MovieDetailsPage /> </IsPrivate>} />
           <Route path='/favorite' element={<IsPrivate> <MyFavoritesPage /> </IsPrivate>} />
           <Route path='/favorite/:favoriteId' element={<IsPrivate> <FavoriteDetailsPage /> </IsPrivate>} />
 

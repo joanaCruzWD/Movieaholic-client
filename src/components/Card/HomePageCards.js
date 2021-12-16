@@ -12,11 +12,11 @@ function HomePageCards({ movies }) {
             {movies.map((movie) =>
             (<div style={{ width: "25%" }} type="submit" key={movie.id}>
                 <div className="card">
-                    <Link to={`/movieDetails/${movie.id}`}>
+                    <Link to={`/movie-details/${movie.id}`}>
                         <img src={`${imageUrl}${movie.posterPath}`} alt="poster" />
                     </Link>
                     <div className="descriptions">
-                        <Link to={`/movieDetails/${movie.id}`}>
+                        <Link to={`/movie-details/${movie.id}`}>
                             <h1>{movie.title}</h1>
                         </Link>
                         <FavoriteBtn movie={movie} />
