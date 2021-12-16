@@ -8,6 +8,7 @@ function Navbar({ userProp }) {
 
   return (
     <nav className="Navbar">
+      <div className='my-app-name'>MOVIEAHOLIC</div>
       <ul>
         <Link to="/">
           <li>
