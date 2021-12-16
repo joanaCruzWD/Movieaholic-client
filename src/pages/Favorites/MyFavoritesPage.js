@@ -1,7 +1,7 @@
 // import MyMoviesImg from '../../images/MyMovies.png';
 import axios from "axios";
 import { useState, useEffect } from "react";
-import FavoritesCard from './../../components/Card/FavoritesCard';
+import FavoriteCard from '../../components/Card/FavoriteCard';
 
 import { toast } from 'react-toastify';
 
@@ -53,7 +53,7 @@ function MyFavoritesPage() {
                 <h1> Favorites</h1>
             </div>
             <div >
-                <FavoritesCard key={favorites.id} favorites={favorites} removeFavoriteMovie={removeFavoriteMovie} />
+                <FavoriteCard favorites={favorites} removeFavoriteMovie={removeFavoriteMovie} key={favorites.id} />
             </div>
         </div>
     ) :

@@ -1,10 +1,10 @@
 import React, { Link } from 'react-router-dom';
-import FavoriteBtn from './../Favorites/FavoriteBtn'
-import './../Card/MoviesCard.css'
+import FavoriteBtn from '../Favorites/FavoriteBtn'
+import './../Card/HomePageCard.css'
 
 const imageUrl = "https://image.tmdb.org/t/p/w500"
 
-function MoviesCard({ movies }) {
+function HomePageCards({ movies }) {
 
     return (
 
@@ -28,4 +28,4 @@ function MoviesCard({ movies }) {
     );
 }
 
-export default MoviesCard;
+export default HomePageCards;

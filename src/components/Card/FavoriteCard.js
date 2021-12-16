@@ -1,15 +1,15 @@
 import React, { Link } from 'react-router-dom';
-import RemoveFavorites from './../Favorites/RemoveFavorites';
+import RemoveFavorites from '../Favorites/RemoveFavorites';
 import './../Card/FavoritesCard.css'
 
 const imageUrl = "https://image.tmdb.org/t/p/w500"
 
-function FavoritesCard({ favorites, removeFavoriteMovie, favorite }) {
+function FavoriteCard({ favorites, removeFavoriteMovie, favorite }) {
 
     return (
         <div className="wrapper-favorites">
             {favorites && favorites.map((movie) =>
-            (<div style={{ width: "25%" }} type="submit">
+            (<div style={{ width: "25%" }} type="submit" key={movie.id}>
                 <div className="card">
                     <Link to={`/favorite/${movie.id}`}>
                         <img src={`${imageUrl}${movie.posterPath}`} alt="poster" />
@@ -18,7 +18,7 @@ function FavoritesCard({ favorites, removeFavoriteMovie, favorite }) {
                         <Link to={`/favorite/${movie.id}`}>
                             <h1>{movie.title}</h1>
                         </Link>
-                        <RemoveFavorites removeFavoriteMovie={removeFavoriteMovie} movie={movie} />
+                        <RemoveFavorites removeFavoriteMovie={removeFavoriteMovie} movie={movie} key={movie.id} />
                     </div>
                 </div>
             </div>
@@ -39,6 +39,7 @@ function FavoritesCard({ favorites, removeFavoriteMovie, favorite }) {
                             <h3>Vote average</h3>
                             <h5>{favorite.voteAverage}</h5>
                         </Link>
+
                         <RemoveFavorites removeFavoriteMovie={removeFavoriteMovie} movie={favorite} />
                     </div>
                 </div>
@@ -47,6 +48,6 @@ function FavoritesCard({ favorites, removeFavoriteMovie, favorite }) {
     )
 }
 
-export default FavoritesCard;
+export default FavoriteCard;
 
 

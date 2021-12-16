@@ -3,12 +3,11 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 import ErrorPage from './../ErrorPage/ErrorPage';
-import FavoritesCard from './../../components/Card/FavoritesCard';
-import Comments from "./../../components/Comments/Comments";
+import MovieCard from '../../components/Card/MovieCard';
 
 
 function MovieDetailsPage() {
-    const [movie, setMovie] = useState([]);
+    const [movie, setMovie] = useState({});
     const [error, setError] = useState(false);
 
     const { movieId } = useParams();
@@ -34,11 +33,10 @@ function MovieDetailsPage() {
         <>
             <div className='all-movies-displayed'>
 
-                <FavoritesCard favorite={movie} key={movie.id} />
+                <MovieCard movie={movie} key={movie.id} />
             </div>
             <div style={{ width: "fit-content", display: "inline-flex" }}>
 
-                <Comments favoriteId={movieId} />
             </div>
         </>
     ) :

@@ -1,6 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
-import MoviesCard from './../../components/Card/MoviesCard';
+import HomePageCards from '../../components/Card/HomePageCards';
 import Search from './../../components/Search/Search'
 import FilterMovies from './../../components/FilterMovies/FilterMovies'
 import { AuthContext } from "../../context/auth.context";
@@ -65,7 +65,7 @@ function HomePage() {
 
       {!emptySearch ?
         (<div >
-          <MoviesCard movies={moviesList} />
+          <HomePageCards movies={moviesList} />
         </div>)
         :
         <div className="warning">
