@@ -1,6 +1,6 @@
 import React, { Link } from 'react-router-dom';
 import RemoveFavorites from '../Favorites/RemoveFavorites';
-import './../Card/FavoritesCard.css'
+import './../Card/FavoriteCard.css'
 
 const imageUrl = "https://image.tmdb.org/t/p/w500"
 

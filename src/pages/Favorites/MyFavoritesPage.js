@@ -53,7 +53,7 @@ function MyFavoritesPage() {
                 <h1> Favorites</h1>
             </div>
             <div >
-                <FavoriteCard favorites={favorites} removeFavoriteMovie={removeFavoriteMovie} key={favorites.id} />
+                <FavoriteCard favorites={favorites} removeFavoriteMovie={removeFavoriteMovie} />
             </div>
         </div>
     ) :
