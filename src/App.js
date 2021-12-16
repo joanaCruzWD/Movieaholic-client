@@ -20,7 +20,9 @@ import Footer from './components/Footer/Footer'
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from 'react';
+
 import axios from "axios";
+const API = process.env.REACT_APP_SERVER_URL;
 
 function App() {
   const [user, setUser] = useState({});
@@ -29,7 +31,7 @@ function App() {
   const fetchUser = async () => {
     try {
       const token = localStorage.getItem('authToken');
-      const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/current`,
+      const response = await axios.get(`${API}/api/users/current`,
         { headers: { Authorization: 'Bearer ' + token } });
 
       const user = response.data;

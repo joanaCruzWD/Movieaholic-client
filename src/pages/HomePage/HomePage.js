@@ -6,6 +6,7 @@ import FilterMovies from './../../components/FilterMovies/FilterMovies'
 import { AuthContext } from "../../context/auth.context";
 
 import './../HomePage/HomePage.css';
+const API = process.env.REACT_APP_SERVER_URL;
 
 function HomePage() {
   const [moviesList, setMoviesList] = useState([]);
@@ -29,7 +30,7 @@ function HomePage() {
     try {
       const token = localStorage.getItem('authToken');
 
-      const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/movies/search/${queryParams}`,
+      const response = await axios.get(`${API}/api/movies/search/${queryParams}`,
         { headers: { Authorization: 'Bearer ' + token } });
       const data = response.data;
       if (data.length === 0) {

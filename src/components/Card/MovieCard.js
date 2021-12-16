@@ -23,8 +23,12 @@ function MovieCard({ movie }) {
                         <p className="movie__detail">Vote average 🏆
                             <h4>{movie.voteAverage}</h4>
                         </p>
-                        <p className="movie__detail">Release date 📅<h4>{movie.releaseDate}</h4></p>
-                        <p className="movie__detail">Runtime 🕑<h4>{movie.runtime} min</h4></p>
+                        <p className="movie__detail">Release date 📅
+                            <h4>{movie.releaseDate}</h4>
+                        </p>
+                        <p className="movie__detail">Runtime 🕑
+                            <h4>{movie.runtime} min</h4>
+                        </p>
                     </div>
                     <FavoriteBtn movie={movie} />
                 </div>

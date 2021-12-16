@@ -5,6 +5,7 @@ import axios from "axios";
 import ErrorPage from './../ErrorPage/ErrorPage';
 import MovieCard from '../../components/Card/MovieCard';
 
+const API = process.env.REACT_APP_SERVER_URL;
 
 function MovieDetailsPage() {
     const [movie, setMovie] = useState({});
@@ -15,7 +16,7 @@ function MovieDetailsPage() {
     const getMovieDetails = async () => {
         try {
             const token = localStorage.getItem('authToken');
-            const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/movie/${movieId}`,
+            const response = await axios.get(`${API}/api/movie/${movieId}`,
                 { headers: { Authorization: 'Bearer ' + token } });
             setMovie(response.data);
 

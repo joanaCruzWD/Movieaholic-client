@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/auth.context";
 
 import './../LoginPage/LoginPage.css';
+const API = process.env.REACT_APP_SERVER_URL;
 
 function LoginPage({ setIsUpdated }) {
   const [email, setEmail] = useState("");
@@ -26,7 +27,7 @@ function LoginPage({ setIsUpdated }) {
 
       const authToken = localStorage.getItem("authToken");
       const response = await axios.post(
-        `${process.env.REACT_APP_SERVER_URL}/auth/login`,
+        `${API}/auth/login`,
         requestBody,
         { headers: { Authorization: `Bearer ${authToken}` } }
       );

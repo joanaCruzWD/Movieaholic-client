@@ -9,6 +9,8 @@ import { toast } from 'react-toastify';
 
 import Comments from "./../../components/Comments/Comments";
 
+const API = process.env.REACT_APP_SERVER_URL;
+
 
 function FavoriteDetailsPage() {
     const [favoriteDetails, setFavoriteDetails] = useState({});
@@ -20,7 +22,7 @@ function FavoriteDetailsPage() {
     const oneFavoriteDetails = async () => {
         try {
             const token = localStorage.getItem('authToken');
-            const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/favorite/${favoriteId}`,
+            const response = await axios.get(`${API}/api/favorite/${favoriteId}`,
                 { headers: { Authorization: 'Bearer ' + token } });
             setFavoriteDetails(response.data);
         } catch (error) {
@@ -33,7 +35,7 @@ function FavoriteDetailsPage() {
         try {
             const token = localStorage.getItem('authToken');
 
-            await axios.delete(`${process.env.REACT_APP_SERVER_URL}/api/favorite/${movieId}`,
+            await axios.delete(`${API}/api/favorite/${movieId}`,
                 { headers: { Authorization: 'Bearer ' + token } });
 
             toast.error('Removed from favorites!')

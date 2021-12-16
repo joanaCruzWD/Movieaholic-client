@@ -5,6 +5,8 @@ import { Link, useNavigate } from "react-router-dom";
 import fileService from "../../services/file.service";
 import './../SignupPage/SignupPage.css';
 
+const API = process.env.REACT_APP_SERVER_URL;
+
 function SignupPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -27,7 +29,7 @@ function SignupPage() {
 
       const authToken = localStorage.getItem('authToken');
       await axios.post(
-        `${process.env.REACT_APP_SERVER_URL}/auth/signup`,
+        `${API}/auth/signup`,
         requestBody,
         { headers: { Authorization: `Bearer ${authToken}` } }
       )

@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import fileService from "../../services/file.service";
 
 import './../ProfilePage/ProfilePage.css';
+const API = process.env.REACT_APP_SERVER_URL;
 
 function ProfilePage({ setIsUpdated }) {
 
@@ -19,7 +20,7 @@ function ProfilePage({ setIsUpdated }) {
   const getUserDetails = async () => {
     try {
       const token = localStorage.getItem('authToken');
-      const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/users/current`,
+      const response = await axios.get(`${API}/api/users/current`,
         { headers: { Authorization: 'Bearer ' + token } });
 
       const user = response.data;
@@ -43,7 +44,7 @@ function ProfilePage({ setIsUpdated }) {
       const token = localStorage.getItem('authToken');
       const requestBody = { name, email, image: imageUrl };
 
-      const response = await axios.put(`${process.env.REACT_APP_SERVER_URL}/api/users/current`,
+      const response = await axios.put(`${API}/api/users/current`,
         requestBody,
         { headers: { Authorization: 'Bearer ' + token } });
       const user = response.data;

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import FavoriteCard from '../../components/Card/FavoriteCard';
 
 import { toast } from 'react-toastify';
+const API = process.env.REACT_APP_SERVER_URL;
 
 function MyFavoritesPage() {
     const [favorites, setFavorites] = useState([]);
@@ -12,7 +13,7 @@ function MyFavoritesPage() {
     const myFavoritesList = async () => {
         try {
             const token = localStorage.getItem('authToken');
-            const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api/favorite`,
+            const response = await axios.get(`${API}/api/favorite`,
                 { headers: { Authorization: 'Bearer ' + token } });
             setFavorites(response.data);
 
@@ -25,7 +26,7 @@ function MyFavoritesPage() {
         try {
             const token = localStorage.getItem('authToken');
 
-            await axios.delete(`${process.env.REACT_APP_SERVER_URL}/api/favorite/${movieId}`,
+            await axios.delete(`${API}/api/favorite/${movieId}`,
                 { headers: { Authorization: 'Bearer ' + token } });
 
             toast.error('Removed from favorites!')

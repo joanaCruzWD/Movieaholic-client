@@ -12,10 +12,12 @@ function Search({ setQueryParams }) {
         setQueryParams(searchMovies);
     }
 
+    const handleSearch = (event) => setSearchMovies(event.target.value);
+
     return (
         <div className="search-bar">
             <form onSubmit={handleSubmit}>
-                <input className="search-input" value={searchMovies} type="text" onChange={(event) => setSearchMovies(event.target.value)} />
+                <input className="search-input" value={searchMovies} type="text" onChange={handleSearch} />
                 <button className="btnSearch">Search</button>
             </form>
         </div>
