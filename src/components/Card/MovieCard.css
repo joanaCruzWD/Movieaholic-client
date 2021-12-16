@@ -24,21 +24,9 @@
 .movie__content {
   background-color: rgba(255, 255, 255, 0.9);
   flex: 1;
-  padding: 35px 30px;
+  padding: 20px 20px;
   display: flex;
   flex-direction: column;
-}
-
-.movie__price {
-  flex: 0 0 50px;
-  font-size: 18px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  color: rgb(255, 255, 255);
-  writing-mode: vertical-lr;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .movie__title {
@@ -50,18 +38,14 @@
 }
 
 .heading__primary {
-  font-size: 30px;
-  margin-right: auto;
+  font-size: 25px;
+  /* margin-right: auto; */
   color: rgb(141, 47, 47);
   margin-bottom: 0;
 }
 
-.fa-award {
-  color: salmon;
-}
-
 .movie__overview {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: lighter;
   color: rgb(133, 133, 133);
   line-height: 24pt;
@@ -70,7 +54,7 @@
 .movie__details {
   display: flex;
   margin-top: auto;
-  margin-left: 20%;
+  margin-left: 12%;
   margin-bottom: 5%;
 }
 
