@@ -33,7 +33,8 @@ function MovieCard({ movie }) {
                     <FavoriteBtn movie={movie} />
                 </div>
             </div>
-        </div >
+
+        </div>
     )
 }
 
