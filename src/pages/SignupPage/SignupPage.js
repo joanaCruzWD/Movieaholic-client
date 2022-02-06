@@ -27,15 +27,11 @@ function SignupPage() {
 
       const requestBody = { email, password, name, image: imageUrl };
 
-      const authToken = localStorage.getItem('authToken');
-      await axios.post(
-        `${API}/auth/signup`,
-        requestBody,
-        { headers: { Authorization: `Bearer ${authToken}` } }
-      )
+      //const authToken = localStorage.getItem('authToken');
+      await axios.post(`${API}/auth/signup`, requestBody)
       navigate("/login");
     } catch (error) {
-      setErrorMessage("Something went wrong");
+      setErrorMessage(error.response.data.message);
     }
   };
 

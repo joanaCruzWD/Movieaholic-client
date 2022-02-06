@@ -1,10 +1,15 @@
 
 import axios from 'axios';
-import React from 'react';
+import React, { useContext } from "react";
+
 
 import { toast } from 'react-toastify';
+import { AuthContext } from "../../context/auth.context";
+
 
 function FavoriteBtn({ movie }) {
+    const { isLoggedIn } = useContext(AuthContext);
+
     const addFavoriteMovie = async () => {
 
         try {
@@ -21,7 +26,7 @@ function FavoriteBtn({ movie }) {
         }
     }
 
-    return (
+    return isLoggedIn && (
         <div>
             <button className="favorites-btn" onClick={addFavoriteMovie} >
                 Add to favorites!

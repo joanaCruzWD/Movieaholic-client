@@ -15,9 +15,8 @@ function MovieDetailsPage() {
 
     const getMovieDetails = async () => {
         try {
-            const token = localStorage.getItem('authToken');
-            const response = await axios.get(`${API}/api/movie/${movieId}`,
-                { headers: { Authorization: 'Bearer ' + token } });
+            //const token = localStorage.getItem('authToken');
+            const response = await axios.get(`${API}/api/movie/${movieId}`);
             setMovie(response.data);
 
         } catch (error) {
